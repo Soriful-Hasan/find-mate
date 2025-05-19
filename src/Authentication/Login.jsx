@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { userContext } from "./AuthProvider";
 
 const Login = () => {
   const { signIn, signInWithGoogle } = useContext(userContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -20,6 +23,7 @@ const Login = () => {
     signInWithGoogle()
       .then((user) => {
         alert("login succsessfully");
+        location?.state ? navigate(location?.state) : navigate("/");
         console.log(user);
       })
       .catch((error) => {

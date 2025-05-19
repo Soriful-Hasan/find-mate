@@ -1,10 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { userContext } from "./AuthProvider";
 
 const Register = () => {
-  const { signUp, signInWithGoogle } = useContext(userContext);
+  const {
+    signUp,
+    signInWithGoogle,
+    updateUserProfile,
+    setUser,
+    user,
+    setLoading,
+  } = useContext(userContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleSignIn = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -25,10 +33,26 @@ const Register = () => {
       alert("password must six character");
       return;
     }
-
+    const userInfo = {
+      displayName: name,
+      photoURL: photo,
+    };
     signUp(email, password)
-      .then((user) => {
-        console.log("login succsessfully", user);
+      .then((customer) => {
+        //user update profile
+        updateUserProfile(userInfo)
+          .then(() => {
+            setUser({ ...user, ...userInfo });
+            navigate("/");
+            setLoading(false);
+          })
+          .catch((error) => {
+            navigate("/");
+            setLoading(false);
+            alert("something was wrong");
+          });
+
+        console.log("login succsessfully", customer);
       })
       .catch((error) => {
         console.log(error);

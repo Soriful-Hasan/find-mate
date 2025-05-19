@@ -1,9 +1,10 @@
 import React, { use, useContext } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import { Link } from "react-router";
+import Loader from "./Loader";
 
 const Navbar = () => {
-  const { user, userSignOut } = useContext(userContext);
+  const { user, userSignOut, loading } = useContext(userContext);
 
   const link = [
     <div className="flex gap-6 font-bold">
@@ -51,13 +52,35 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
-        <div className="navbar-end">
-          {user ? (
-            <button className="btn" onClick={handleSignOut}>LogOut</button>
+        <div className="navbar-end  space-x-5">
+          <div
+            className="tooltip tooltip-bottom"
+            data-tip={user?.auth?.displayName}
+          >
+            {loading ? (
+              <span className="loading loading-spinner loading-xl"></span>
+            ) : (
+              <div className="avatar">
+                <div className="w-12 rounded-full ">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+            )}
+          </div>
+          {loading ? (
+            <span className="loading loading-spinner loading-xl"></span>
           ) : (
-            <Link className="btn" to={"/login"}>
-              LogIn
-            </Link>
+            <>
+              {user ? (
+                <button className="btn" onClick={handleSignOut}>
+                  LogOut
+                </button>
+              ) : (
+                <Link className="btn" to={"/login"}>
+                  LogIn
+                </Link>
+              )}
+            </>
           )}
         </div>
       </div>
