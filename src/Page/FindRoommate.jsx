@@ -33,7 +33,7 @@ const FindRoommate = () => {
       });
   };
   return (
-    <div className="min-h-screen">
+    <div className="">
       <form onSubmit={handleSubmitData}>
         <div className="grid grid-cols-2 gap-10 mt-20">
           <input
@@ -62,8 +62,8 @@ const FindRoommate = () => {
             list="roomType"
           />
           <datalist id="roomType">
-            <option value="New"></option>
-            <option value="Old"></option>
+            <option value="Single"></option>
+            <option value="Shared"></option>
           </datalist>
           <input
             type="text"

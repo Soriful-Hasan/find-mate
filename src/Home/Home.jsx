@@ -19,7 +19,7 @@ const Home = () => {
   }, [data]);
 
   return (
-    <div className="min-h-screen grid grid-cols-3 gap-4 mt-20">
+    <div className="min-h-screen grid grid-cols-3 gap-4 mt-10 ">
       {data?.map((singleData) => (
         <AvailableRoommate singleData={singleData}></AvailableRoommate>
       ))}
