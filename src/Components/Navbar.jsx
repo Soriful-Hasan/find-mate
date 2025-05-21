@@ -9,7 +9,9 @@ const Navbar = () => {
   const link = [
     <div className="flex gap-6 font-bold">
       <Link to={"/"}>Home</Link>
-      <Link to={"/findRoommate"}>Find Roommate</Link>
+      <Link to={"/findRoommate"}>Add to Find Roommate</Link>
+      <Link to={"/browseListing"}>Browse Listing</Link>
+      <Link to={"/myListing"}>My Listings</Link>
     </div>,
   ];
 
