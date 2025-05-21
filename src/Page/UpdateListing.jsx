@@ -38,7 +38,7 @@ const UpdateListing = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white">
       <form onSubmit={(e) => handleUpdate(e, _id)}>
         <div className="grid grid-cols-2 gap-10 mt-20">
           <input

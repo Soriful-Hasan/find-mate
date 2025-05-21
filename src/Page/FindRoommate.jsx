@@ -33,9 +33,10 @@ const FindRoommate = () => {
       });
   };
   return (
-    <div className="">
+    <div className=" border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white">
+      <h1 className="font-bold text-center text-2xl ">Add Post</h1>
       <form onSubmit={handleSubmitData}>
-        <div className="grid grid-cols-2 gap-10 mt-20">
+        <div className="grid grid-cols-2 gap-10 mt-10">
           <input
             type="text"
             name="title"
@@ -113,8 +114,8 @@ const FindRoommate = () => {
             className="input input-md w-full disabled:not-read-only"
           />
         </div>
-        <div className=" flex justify-center mt-20">
-          <button className="btn w-8/12 ">Add Data</button>
+        <div className=" flex justify-center w-full   mt-20">
+          <button className="btn full w-2xl bg-[#23BE0A] text-white">Add Post</button>
         </div>
       </form>
     </div>
