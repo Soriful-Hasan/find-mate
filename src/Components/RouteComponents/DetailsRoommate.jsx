@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router";
+import { userContext } from "../../Authentication/AuthProvider";
 
 const DetailsRoommate = () => {
+  const { user } = useContext(userContext);
   const [like, setLike] = useState(1);
   const data = useLoaderData();
   const [postDetails, setPostDetails] = useState(data);
 
-  console.log(postDetails);
   const handleLike = (id) => {
     setLike(1);
-
-    console.log(like);
-    // const likeCount = {
-    //   parseLike,
-    // };
     fetch(`http://localhost:3000/addLike/${id}`, {
       method: "PATCH",
       headers: {
@@ -35,20 +31,40 @@ const DetailsRoommate = () => {
       });
   };
 
-  const handleUserIsLike = (id) => {
-    fetch(`http://localhost:3000/userLiked/${id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updatedPosts = [...postDetails];
-        const index = updatedPosts.findIndex((post) => post._id == id);
-        if (index != -1) {
-          updatedPosts[index].isLiked = true;
-          setPostDetails(updatedPosts);
-        }
-      });
-  };
+  // const handleUserIsLike = (id) => {
+  //   const userID = user?.uid;
+  //   const logUserId = {
+  //     userID,
+  //   };
+  //   console.log(logUserId);
+  //   fetch(`http://localhost:3000/userLiked/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(logUserId),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {});
+  // };
+
+  // useState(() => {
+  //   fetch("http://localhost:3000/userLogId")
+  //     .then((res) => res.json())
+  //     .then((data) => setGetId(data));
+  // }, []);
+  // const desId = getId[0];
+  // const objDesId = desId?.userLogId;
+  // console.log("objDesId", objDesId);
+  // console.log(desId);
+  // const filterId = logId.filter((id) => id.userId == user?.uid);
+  // console.log(filterId);
+  // const updatedPosts = [...postDetails];
+  // const index = updatedPosts.findIndex((post) => post._id == id);
+  // if (index != -1) {
+  //   updatedPosts[index].isLiked = true;
+  //   setPostDetails(updatedPosts);
+  // }
 
   return (
     <div className="min-h-screen">
@@ -63,17 +79,15 @@ const DetailsRoommate = () => {
           <h1>{details.roomType}</h1>
           <h1>{details.description}</h1>
           <h1>{details.availability}</h1>
-          {details.isLiked ? "show contact info" : "hide contact info"}
           <h1></h1>
           <p className="mt-4">like count: {details.like}</p>
 
           <div className="">
-            {details.isLiked ? "show contact info" : "hide contact info"}
+            {details.like > 0 ? "show information" : "hide information"}
           </div>
           <button
             onClick={() => {
               handleLike(details._id);
-              handleUserIsLike(details._id);
             }}
             className={
               details.isLiked ? "disabled:cursor-not-allowed btn" : "btn"
