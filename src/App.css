@@ -3,16 +3,55 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-body.light {
-  background-color: white;
-  color: black;
-}
-
-body.dark {
-  background-color: #222;
-  color: white;
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake;
 }
 
 * {
   font-family: "Work Sans", sens-serif;
+}
+
+body {
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.autoplay-progress span {
+  display: none;
+} 
+
+.swiper-button-prev{
+  display: none;
+}
+.swiper-button-next{
+  display: none;
 }

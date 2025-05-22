@@ -1,6 +1,14 @@
 import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router";
 import { userContext } from "../../Authentication/AuthProvider";
+import { FcLike } from "react-icons/fc";
+import { AiFillLike, AiOutlineLike } from "react-icons/ai";
+import { ImLocation } from "react-icons/im";
+import { TbCoinTakaFilled } from "react-icons/tb";
+import { BsHouseFill } from "react-icons/bs";
+import { GoCheckCircleFill } from "react-icons/go";
+import { FaMobile } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 const DetailsRoommate = () => {
   const { user } = useContext(userContext);
@@ -67,34 +75,87 @@ const DetailsRoommate = () => {
   // }
 
   return (
-    <div className="min-h-screen">
+    <div className="my-10 mb-25 mx-auto flex flex-col justify-center ">
       {postDetails?.map((details) => (
-        <div className="p-4 shadow mt-4">
-          <h1>{details.name}</h1>
-          <h1>{details.title}</h1>
-          <h1>{details.email}</h1>
-          <h1>{details.Location}</h1>
-          <h1>{details.amount}</h1>
-          <h1>{details.contact}</h1>
-          <h1>{details.roomType}</h1>
-          <h1>{details.description}</h1>
-          <h1>{details.availability}</h1>
-          <h1></h1>
-          <p className="mt-4">like count: {details.like}</p>
-
-          <div className="">
-            {details.like > 0 ? "show information" : "hide information"}
+        <div className="p-8 border border-gray-200 mt-4 bg-white">
+          <p className="text-sm mb-4 ">
+            <span className="font-semibold bg-[#23BE0A15]  text-[#23BE0A] p-2 rounded">
+              {details.like} People intersted
+            </span>
+          </p>
+          <div className="space-y-3">
+            <h1 className="text-4xl font-bold text-gray-800 ">
+              {details.title}
+            </h1>
+            <p>Post By {details.name}</p>
+            <div className="border-b border-gray-200 w-full "></div>
           </div>
-          <button
-            onClick={() => {
-              handleLike(details._id);
-            }}
-            className={
-              details.isLiked ? "disabled:cursor-not-allowed btn" : "btn"
-            }
-          >
-            Like
-          </button>
+
+          <div className="space-y-3 mt-3">
+            <p>Room Type: {details.roomType}</p>
+            <p>Life Style: {details.lifestyle}</p>
+            <div className="border-b border-gray-200 w-full "></div>
+          </div>
+
+          <div className="space-y-4 my-6">
+            <p className="flex place-items-center gap-2">
+              <ImLocation color="#FF4C4C" />
+              {details.Location}
+            </p>
+            <p className="flex place-items-center gap-2">
+              <TbCoinTakaFilled color="#23BE0A" />
+              {details.amount}
+            </p>
+            <p className="flex place-items-center gap-2">
+              <BsHouseFill color="#1E90FF" />
+              {details.roomType}
+            </p>
+            <p className="flex place-items-center gap-2">
+              <GoCheckCircleFill color="#23BE0A" />
+              {details.availability}
+            </p>
+          </div>
+          <p className="my-6 lg:w-4xl">
+            <span className="font-semibold">Room Details</span>:{" "}
+            {details.description}I’m friendly, clean, and respectful, and I’d
+            love to share the space with someone like-minded. If you’re
+            interested or have any questions, feel free to DM me! love to share
+            the space with someone like-minded. If you’re interested or have any
+            questions, feel free to DM me! love to share the space with someone
+            like-minded. If you’re interested or have any questions, feel free
+            to DM me!
+          </p>
+          <div className="border-b my-6 border-gray-200 w-full "></div>
+          {details.like > 0 ? (
+            <div className="space-y-2">
+              <p className="font-semibold">Contact Information </p>
+              <p className=" text-gray-900">{details.name}</p>
+
+              <div className="flex items-center gap-2 ">
+                <MdEmail color="#FF4C4C" />
+                <p className=" text-gray-900">{details.email}</p>
+              </div>
+              <div className="flex items-center gap-2 ">
+                <FaMobile color="#23BE0A" />
+                <p className=" text-gray-900">{details.contact}</p>
+              </div>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          <div className="cursor-pointer mt-4">
+            {details.like > 0 ? (
+              <div className="cursor-not-allowed">
+                <AiFillLike color="#1E90FF" size={40} />
+              </div>
+            ) : (
+              <AiOutlineLike
+                size={40}
+                onClick={() => handleLike(details._id)}
+              />
+            )}
+          </div>
         </div>
       ))}
     </div>

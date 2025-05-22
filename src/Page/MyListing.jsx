@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
+import { FaTrash } from "react-icons/fa";
 
 const MyListing = () => {
   const { user } = useContext(userContext);
@@ -57,22 +58,23 @@ const MyListing = () => {
   const handleEdit = (id) => {};
   return (
     <div className="min-h-screen ">
-      <div className="overflow-x-auto">
-        <table className="table">
+      <div className="overflow-x-auto mt-4">
+        <table className="table border bg-white border-gray-200">
           {/* head */}
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Title</th>
-              <th>Location</th>
-              <th>amount</th>
-              <th>Contact</th>
+          <thead className="border border-gray-200 bg-green-100 text-green-700">
+            <tr className="border border-gray-200">
+              <th className="border border-gray-200">User</th>
+              <th className="border border-gray-200">Title</th>
+              <th className="border border-gray-200">Location</th>
+              <th className="border border-gray-200">amount</th>
+              <th className="border border-gray-200">Edit</th>
+              <th className="border border-gray-200">Delete</th>
             </tr>
           </thead>
           <tbody>
             {listingData.map((listing) => (
               <tr>
-                <td>
+                <td className="border border-gray-200">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -84,32 +86,28 @@ const MyListing = () => {
                     </div>
                     <div>
                       <div className="font-bold">{listing.name}</div>
-                      <span className="badge badge-ghost badge-sm">
-                        {listing.availability}
-                      </span>
                     </div>
                   </div>
                 </td>
-                <td>{listing.title}</td>
+                <td className="border border-gray-200">{listing.title}</td>
                 <td>
                   {listing.Location}
                   <br />
                 </td>
-                <td>{listing.amount} Taka</td>
-                <td>
-                  <div className="flex flex-col">
-                    <span>{listing.email}</span>
-                    <span>{listing.contact}</span>
-                  </div>
+                <td className="border border-gray-200">
+                  {listing.amount} Taka
                 </td>
-                <td>
+
+                <td className="border border-gray-200">
+                  <button
+                    onClick={() => handleDelete(listing._id)}
+                    className="btn bg-white"
+                  >
+                    <FaTrash />
+                  </button>
+                </td>
+                <td className="border border-gray-200">
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => handleDelete(listing._id)}
-                      className="btn"
-                    >
-                      x
-                    </button>
                     <Link className="btn" to={`/updateDetails/${listing._id}`}>
                       edit
                     </Link>

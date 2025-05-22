@@ -39,96 +39,121 @@ const UpdateListing = () => {
 
   return (
     <div className="border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white">
-      <form onSubmit={(e) => handleUpdate(e, _id)}>
-        <div className="grid grid-cols-2 gap-10 mt-20">
-          <input
-            type="text"
-            name="title"
-            placeholder="Title"
-            defaultValue={title}
-            className="input input-md w-full"
-          />
-          <input
-            type="text"
-            name="Location"
-            placeholder="Location"
-            className="input input-md w-full"
-            defaultValue={Location}
-          />
-          <input
-            type="text"
-            name="amount"
-            placeholder="Rent Amount"
-            className="input input-md w-full"
-            defaultValue={amount}
-          />
-          <input
-            type="text"
-            name="roomType"
-            className="input w-full"
-            placeholder="Room Type"
-            list="roomType"
-            defaultValue={roomType}
-          />
-          <datalist id="roomType">
-            <option value="New"></option>
-            <option value="Old"></option>
-          </datalist>
-          <input
-            type="text"
-            name="lifestyle"
-            className="input w-full"
-            placeholder="Lifestyle Preferences"
-            list="lifestyle"
-            defaultValue={lifestyle}
-          />
-          <datalist id="lifestyle">
-            <option value="Smoking"></option>
-            <option value="pet"></option>
-          </datalist>
-          <input
-            type="text"
-            name="description"
-            placeholder="Description"
-            className="input input-md w-full"
-            defaultValue={description}
-          />
-          <input
-            type="text"
-            name="contact"
-            placeholder="Contact Info "
-            className="input input-md w-full"
-            defaultValue={contact}
-          />
-          <input
-            type="text"
-            name="availability"
-            className="input w-full"
-            placeholder="availability"
-            list="availability"
-            defaultValue={availability}
-          />
-          <datalist id="availability">
-            <option value="Available"></option>
-            <option value="Unavailable"></option>
-          </datalist>
-          <input
-            type="text"
-            name="email"
-            value={user?.email}
-            className="input input-md w-full disabled:not-read-only"
-          />
-          <input
-            type="text"
-            name="name"
-            value={user?.displayName}
-            placeholder="Soriful Hasan"
-            className="input input-md w-full disabled:not-read-only"
-          />
+      <h1 className="font-bold  text-2xl text-start">Update Your Post</h1>
+      <form className="" onSubmit={(e) => handleUpdate(e, _id)}>
+        <div className=" gap-10 mt-10 grid grid-cols-1 lg:grid-cols-2">
+          <div className="">
+            <input
+              type="text"
+              name="title"
+              placeholder="Title"
+              defaultValue={title}
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="Location"
+              placeholder="Location"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              defaultValue={Location}
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="amount"
+              placeholder="Rent Amount"
+              className="input input-md w-full"
+              defaultValue={amount}
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="roomType"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              placeholder="Room Type"
+              list="roomType"
+              defaultValue={roomType}
+            />
+            <datalist id="roomType">
+              <option value="New"></option>
+              <option value="Old"></option>
+            </datalist>
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="lifestyle"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              placeholder="Lifestyle Preferences"
+              list="lifestyle"
+              defaultValue={lifestyle}
+            />
+            <datalist id="lifestyle">
+              <option value="Smoking"></option>
+              <option value="pet"></option>
+            </datalist>
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="description"
+              placeholder="Description"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              defaultValue={description}
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="contact"
+              placeholder="Contact Info "
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              defaultValue={contact}
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="availability"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              placeholder="availability"
+              list="availability"
+              defaultValue={availability}
+            />
+
+            <datalist id="availability">
+              <option value="Available"></option>
+              <option value="Unavailable"></option>
+            </datalist>
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="email"
+              value={user?.email}
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+            />
+          </div>
+          <div className="">
+            <input
+              type="text"
+              name="name"
+              value={user?.displayName}
+              placeholder="Soriful Hasan"
+              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+            />
+          </div>
         </div>
         <div className=" flex justify-center mt-20">
-          <button type="submit" className="btn w-8/12 ">
-            Update Data
+          <button
+            type="submit"
+            className="btn full w-full bg-[#23BE0A] text-white"
+          >
+            Update Post
           </button>
         </div>
       </form>
