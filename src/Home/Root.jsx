@@ -8,13 +8,13 @@ const Root = () => {
   const { theme } = useContext(userContext);
   const isLight = theme === "light";
   return (
-    <div className={`${isLight?'bg-gray-50':'bg-gray-700'}`}>
+    <div className={`${isLight ? "bg-gray-50" : "bg-[#121212]"}`}>
       <Navbar></Navbar>
-      
-        <div className="w-11/12 mx-auto ">
-          <Outlet></Outlet>
-        </div>
-    
+
+      <div className="w-11/12 mx-auto ">
+        <Outlet></Outlet>
+      </div>
+
       <Footer></Footer>
     </div>
   );

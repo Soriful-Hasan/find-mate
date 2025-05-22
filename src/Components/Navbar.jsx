@@ -98,7 +98,13 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="navbar shadow-sm bg-gray-800">
+      <div
+        className={`${
+          theme === "light"
+            ? "navbar shadow-sm "
+            : "navbar shadow-sm bg-[#191E24]"
+        }`}
+      >
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -129,8 +135,8 @@ const Navbar = () => {
             <img height={30} width={30} src="/logo.png" alt="" />
             <a
               className={`${
-                theme
-                  ? "bg-black text-sm lg:text-xl  font-semibold"
+                theme == 'light'
+                  ? "text-black text-sm lg:text-xl  font-semibold"
                   : "text-white text-sm lg:text-xl  font-semibold"
               }`}
             >

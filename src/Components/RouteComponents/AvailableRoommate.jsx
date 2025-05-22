@@ -16,7 +16,7 @@ const AvailableRoommate = ({ singleData }) => {
       {/* parent div */}
       <div
         className={`${
-          isLight ? "card bg-base-100 card-md shadow-sm" : "bg-gray-500"
+          isLight ? "card bg-base-100 card-md shadow-sm" : "bg-[#191E24] card"
         }`}
       >
         <div className="card-body">

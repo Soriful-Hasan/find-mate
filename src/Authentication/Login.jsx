@@ -37,7 +37,7 @@ const Login = () => {
         className={`${
           theme === "light"
             ? "card bg-base-100 w-full  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-200 "
-            : "card bg-gray-500 w-full text-white  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-500 "
+            : "card bg-[#191E24] w-full text-white  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-500 "
         }`}
       >
         <div className="place-items-center mt-4">
