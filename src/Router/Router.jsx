@@ -25,7 +25,11 @@ const router = createBrowserRouter([
         path: "/roommateDetails/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/roommateData/${params.id}`),
-        element: <DetailsRoommate></DetailsRoommate>,
+        element: (
+          <ProtectedRoute>
+            <DetailsRoommate></DetailsRoommate>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/findRoommate",

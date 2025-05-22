@@ -3,7 +3,7 @@ import { userContext } from "../Authentication/AuthProvider";
 import Swal from "sweetalert2";
 
 const FindRoommate = () => {
-  const { user } = useContext(userContext);
+  const { user, theme } = useContext(userContext);
   const userPhoto = user?.photoURL;
   const handleSubmitData = (e) => {
     e.preventDefault();
@@ -33,8 +33,22 @@ const FindRoommate = () => {
       });
   };
   return (
-    <div className=" border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white">
-      <h1 className="font-bold  text-2xl text-start">Add Post</h1>
+    <div
+      className={`${
+        theme === "light"
+          ? "border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white"
+          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-gray-500 text-gray-50"
+      }`}
+    >
+      <h1
+        className={`${
+          theme === "light"
+            ? "font-bold  text-2xl text-start"
+            : "font-bold  text-2xl text-start text-white"
+        }`}
+      >
+        Add Post
+      </h1>
       <form onSubmit={handleSubmitData}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
           <div className="">
@@ -42,7 +56,11 @@ const FindRoommate = () => {
               type="text"
               name="title"
               placeholder="Title"
-              className="focus:outline-none input input-md w-full border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -50,7 +68,11 @@ const FindRoommate = () => {
               type="text"
               name="Location"
               placeholder="Location"
-              className="focus:outline-none border-green-500 input input-md w-full"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -58,14 +80,22 @@ const FindRoommate = () => {
               type="text"
               name="amount"
               placeholder="Rent Amount"
-              className="border-green-500 focus:outline-none input input-md w-full"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
             <input
               type="text"
               name="roomType"
-              className="border-green-500 focus:outline-none input w-full"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
               placeholder="Room Type"
               list="roomType"
             />
@@ -78,7 +108,11 @@ const FindRoommate = () => {
             <input
               type="text"
               name="lifestyle"
-              className="input w-full border-green-500 focus:outline-none"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
               placeholder="Lifestyle Preferences"
               list="lifestyle"
             />
@@ -92,7 +126,11 @@ const FindRoommate = () => {
               type="text"
               name="description"
               placeholder="Description"
-              className="input input-md w-full border-green-500 focus:outline-none"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -100,14 +138,22 @@ const FindRoommate = () => {
               type="text"
               name="contact"
               placeholder="Contact Info "
-              className="input input-md w-full border-green-500 focus:outline-none"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
             <input
               type="text"
               name="availability"
-              className="input w-full border-green-500 focus:outline-none"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
               placeholder="availability"
               list="availability"
             />
@@ -121,7 +167,11 @@ const FindRoommate = () => {
               type="text"
               name="email"
               value={user.email}
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -130,12 +180,22 @@ const FindRoommate = () => {
               name="name"
               value={user.displayName}
               placeholder="Soriful Hasan"
-              className="input input-md w-full disabled:not-read-only border-green-500 focus:outline-none"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full bg-gray-400"
+              }`}
             />
           </div>
         </div>
         <div className=" flex justify-center w-full   mt-20">
-          <button className="btn full w-full bg-[#23BE0A] text-white">
+          <button
+            className={`${
+              theme === "light"
+                ? "btn full w-full bg-[#23BE0A] text-white"
+                : "btn full w-full bg-gray-400  text-white"
+            }`}
+          >
             Add Post
           </button>
         </div>

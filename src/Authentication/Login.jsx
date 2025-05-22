@@ -4,7 +4,7 @@ import { userContext } from "./AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const { signIn, signInWithGoogle } = useContext(userContext);
+  const { signIn, signInWithGoogle, theme } = useContext(userContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,7 +33,13 @@ const Login = () => {
   };
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
-      <div className="card bg-base-100 w-full max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-200 ">
+      <div
+        className={`${
+          theme === "light"
+            ? "card bg-base-100 w-full  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-200 "
+            : "card bg-gray-500 w-full text-white  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-500 "
+        }`}
+      >
         <div className="place-items-center mt-4">
           <div className="text-start w-full ">
             <h1 className="text-2xl font-bold">Login</h1>
@@ -48,7 +54,11 @@ const Login = () => {
               type="email"
               name="email"
               required
-              className=" py-4 focus:outline-none text-sm border-[#AAAAAA] w-full border-0 border-b rounded-none"
+              className={`${
+                theme === "light"
+                  ? " py-4 focus:outline-none text-sm border-[#AAAAAA] w-full border-0 border-b rounded-none"
+                  : " py-4 focus:outline-none text-white text-sm border-[#AAAAAA] w-full border-0 border-b rounded-none"
+              }`}
               placeholder="Email"
             />
             <input
@@ -61,11 +71,25 @@ const Login = () => {
 
             <div className="flex justify-around  mt-8 w-full">
               <p className="font-semibold">Remember Me</p>
-              <p className=" text-end link text-[#23BE0A]">Forget Password</p>
+              <p
+                className={`${
+                  theme === "light"
+                    ? "text-end link text-[#23BE0A]"
+                    : "text-end link text-white"
+                }`}
+              >
+                Forget Password
+              </p>
             </div>
 
             <div className="w-full  flex justify-center">
-              <button className="btn bg-[#23BE0A] text-white mt-4 w-full">
+              <button
+                className={`${
+                  theme === "light"
+                    ? "btn full w-full bg-[#23BE0A] mt-4 text-white"
+                    : "btn full w-full bg-white text-black mt-4 "
+                }`}
+              >
                 Login
               </button>
             </div>
@@ -82,7 +106,7 @@ const Login = () => {
       </div>
       <div className="flex my-8 max-w-lg w-full items-center gap-2">
         <div className="border-b w-full border-[#AAAAAA]"></div>
-        <p>Or</p>
+        <p className={`${theme == "light" ? "" : "text-white"}`}>Or</p>
         <div className="w-full border-b border-[#AAAAAA]"></div>
       </div>
       <div className=" w-full  flex justify-center">

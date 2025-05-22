@@ -11,6 +11,7 @@ const Register = () => {
     setUser,
     user,
     setLoading,
+    theme
   } = useContext(userContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const Register = () => {
       displayName: name,
       photoURL: photo,
     };
+    console.log(photo);
     signUp(email, password)
       .then((customer) => {
         //user update profile
@@ -73,7 +75,13 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
-      <div className="card bg-base-100 w-full max-w-lg shrink-0  py-6 px-4 border rounded-sm border-gray-200  ">
+      <div
+        className={`${
+          theme === "light"
+            ? "card bg-base-100 w-full  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-200 "
+            : "card bg-gray-500 w-full text-white  max-w-lg shrink-0 py-6 px-4 border rounded-sm border-gray-500 "
+        }`}
+      >
         <div className="place-items-center mt-4">
           <div className="text-start w-full ">
             <h1 className="text-2xl font-bold">Register</h1>
@@ -117,8 +125,14 @@ const Register = () => {
             />
 
             <div className="w-full  flex justify-center">
-              <button className="btn bg-[#23BE0A] text-white mt-4 w-full">
-                Login
+              <button
+                className={`${
+                  theme === "light"
+                    ? "btn full w-full bg-[#23BE0A] mt-4 text-white"
+                    : "btn full w-full bg-white text-black mt-4 "
+                }`}
+              >
+                Register
               </button>
             </div>
             <div>
@@ -131,7 +145,7 @@ const Register = () => {
       </div>
       <div className="flex my-8 max-w-lg w-full items-center gap-2">
         <div className="border-b w-full border-[#AAAAAA]"></div>
-        <p>Or</p>
+        <p className={`${theme == "light" ? "" : "text-white"}`}>Or</p>
         <div className="w-full border-b border-[#AAAAAA]"></div>
       </div>
       <div className=" w-full  flex justify-center">

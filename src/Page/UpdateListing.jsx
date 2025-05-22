@@ -3,7 +3,7 @@ import { userContext } from "../Authentication/AuthProvider";
 import { useLoaderData } from "react-router";
 
 const UpdateListing = () => {
-  const { user } = useContext(userContext);
+  const { user, theme } = useContext(userContext);
   const data = useLoaderData();
 
   const {
@@ -38,7 +38,13 @@ const UpdateListing = () => {
   };
 
   return (
-    <div className="border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white">
+    <div
+      className={`${
+        theme === "light"
+          ? "border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white"
+          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-gray-500 text-gray-50"
+      }`}
+    >
       <h1 className="font-bold  text-2xl text-start">Update Your Post</h1>
       <form className="" onSubmit={(e) => handleUpdate(e, _id)}>
         <div className=" gap-10 mt-10 grid grid-cols-1 lg:grid-cols-2">
@@ -48,7 +54,11 @@ const UpdateListing = () => {
               name="title"
               placeholder="Title"
               defaultValue={title}
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -56,7 +66,11 @@ const UpdateListing = () => {
               type="text"
               name="Location"
               placeholder="Location"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               defaultValue={Location}
             />
           </div>
@@ -65,7 +79,11 @@ const UpdateListing = () => {
               type="text"
               name="amount"
               placeholder="Rent Amount"
-              className="input input-md w-full"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               defaultValue={amount}
             />
           </div>
@@ -73,7 +91,11 @@ const UpdateListing = () => {
             <input
               type="text"
               name="roomType"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               placeholder="Room Type"
               list="roomType"
               defaultValue={roomType}
@@ -87,7 +109,11 @@ const UpdateListing = () => {
             <input
               type="text"
               name="lifestyle"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               placeholder="Lifestyle Preferences"
               list="lifestyle"
               defaultValue={lifestyle}
@@ -102,7 +128,11 @@ const UpdateListing = () => {
               type="text"
               name="description"
               placeholder="Description"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               defaultValue={description}
             />
           </div>
@@ -111,7 +141,11 @@ const UpdateListing = () => {
               type="text"
               name="contact"
               placeholder="Contact Info "
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               defaultValue={contact}
             />
           </div>
@@ -119,7 +153,11 @@ const UpdateListing = () => {
             <input
               type="text"
               name="availability"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
               placeholder="availability"
               list="availability"
               defaultValue={availability}
@@ -135,7 +173,11 @@ const UpdateListing = () => {
               type="text"
               name="email"
               value={user?.email}
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
             />
           </div>
           <div className="">
@@ -144,14 +186,22 @@ const UpdateListing = () => {
               name="name"
               value={user?.displayName}
               placeholder="Soriful Hasan"
-              className="input input-md w-full disabled:not-read-only focus:outline-none border-green-500"
+              className={`${
+                theme === "light"
+                  ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+              }`}
             />
           </div>
         </div>
         <div className=" flex justify-center mt-20">
           <button
             type="submit"
-            className="btn full w-full bg-[#23BE0A] text-white"
+            className={`${
+              theme === "light"
+                ? "btn full w-full bg-[#23BE0A] text-white"
+                : "btn full w-full bg-gray-400  text-white"
+            }`}
           >
             Update Post
           </button>

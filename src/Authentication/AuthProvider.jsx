@@ -14,7 +14,10 @@ export const userContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+  );
+
   const provider = new GoogleAuthProvider();
 
   const signUp = (email, password) => {
@@ -37,6 +40,31 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
+
+  // togole theme in my project
+
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
+  
+  // const toggleTheme = () => {
+  //   setTheme(theme === "dark" ? "light" : "dark");
+  // };
+  // initially set the theme and "listen" for changes to apply them to the HTML tag
+  // React.useEffect(() => {
+  //   document.querySelector("html").setAttribute("data-theme", theme);
+  // }, [theme]);
+
   const data = {
     signUp,
     signIn,
@@ -47,6 +75,8 @@ const AuthProvider = ({ children }) => {
     setUser,
     userSignOut,
     updateUserProfile,
+    handleToggle,
+    theme,
   };
 
   useEffect(() => {

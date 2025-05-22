@@ -4,7 +4,7 @@ import { userContext } from "../Authentication/AuthProvider";
 import { CgDetailsMore } from "react-icons/cg";
 
 const BrowseListing = () => {
-  const { user } = useContext(userContext);
+  const { user, theme } = useContext(userContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/listingData")
@@ -20,11 +20,17 @@ const BrowseListing = () => {
           </Link> */
   }
   return (
-    <div className="">
+    <div className={`${theme === "light" ? "" : "text-white bg-gray-500"}`}>
       <div className="overflow-x-auto mt-10 mb-30">
         <table className="table border border-gray-200">
           {/* head */}
-          <thead className="bg-green-100 text-green-700">
+          <thead
+            className={`${
+              theme === "light"
+                ? "border border-gray-200 bg-green-100 text-green-700"
+                : "text-white bg-gray-600"
+            }`}
+          >
             <tr className="border border-gray-200">
               <th className="border border-gray-200">User</th>
               <th className="border border-gray-200">Title</th>
@@ -38,7 +44,7 @@ const BrowseListing = () => {
             {data.map((listing) => (
               <tr className="border border-gray-200">
                 <td className="border border-gray-200">
-                  <div className="flex items-center gap-3">
+                  <div className="flex  items-center gap-6">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
                         <img
@@ -48,7 +54,7 @@ const BrowseListing = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{listing.name}</div>
+                      <div className="">{listing.name}</div>
                     </div>
                   </div>
                 </td>
@@ -67,8 +73,15 @@ const BrowseListing = () => {
                   </div>
                 </td>
                 <td className="border border-gray-200">
-                  <Link to={`/roommateDetails/${listing._id}`} className="btn">
-                    <CgDetailsMore />
+                  <Link
+                    to={`/roommateDetails/${listing._id}`}
+                    className="btn bg-white"
+                  >
+                    {theme == "light" ? (
+                      <CgDetailsMore />
+                    ) : (
+                      <CgDetailsMore color="black" />
+                    )}
                   </Link>
                 </td>
               </tr>

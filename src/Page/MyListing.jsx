@@ -6,7 +6,7 @@ import { FaTrash, FaUserEdit } from "react-icons/fa";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
 
 const MyListing = () => {
-  const { user } = useContext(userContext);
+  const { user, theme } = useContext(userContext);
   const [listingData, setListingData] = useState([]);
   const userEmail = user?.email;
 
@@ -59,10 +59,22 @@ const MyListing = () => {
   const handleEdit = (id) => {};
   return (
     <div className="min-h-screen ">
-      <div className="overflow-x-auto mt-4">
-        <table className="table border bg-white border-gray-200">
+      <div className="overflow-x-auto mt-4 ">
+        <table
+          className={`${
+            theme === "light"
+              ? "table border bg-white border-gray-200"
+              : "table border text-white bg-gray-500 border-gray-500"
+          }`}
+        >
           {/* head */}
-          <thead className="border border-gray-200 bg-green-100 text-green-700">
+          <thead
+            className={`${
+              theme === "light"
+                ? "border border-gray-200 bg-green-100 text-green-700"
+                : "text-white bg-gray-600"
+            }`}
+          >
             <tr className="border border-gray-200">
               <th className="border border-gray-200">User</th>
               <th className="border border-gray-200">Title</th>
@@ -86,7 +98,7 @@ const MyListing = () => {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">{listing.name}</div>
+                      <div className="">{listing.name}</div>
                     </div>
                   </div>
                 </td>
@@ -105,7 +117,11 @@ const MyListing = () => {
                       className="btn bg-white"
                       to={`/updateDetails/${listing._id}`}
                     >
-                      <FaUserEdit />
+                      {theme == "light" ? (
+                        <FaUserEdit />
+                      ) : (
+                        <FaUserEdit color="black" />
+                      )}
                     </Link>
                   </div>
                 </td>
@@ -114,7 +130,7 @@ const MyListing = () => {
                     onClick={() => handleDelete(listing._id)}
                     className="btn bg-white"
                   >
-                    <FaTrash />
+                    {theme == "light" ? <FaTrash /> : <FaTrash color="black" />}
                   </button>
                 </td>
               </tr>
