@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { userContext } from "./AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { signIn, signInWithGoogle, theme } = useContext(userContext);
-  const [error, setError] = useState("");
+  const { signIn, signInWithGoogle, theme, setLoading } =
+    useContext(userContext);
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location);
@@ -14,21 +15,84 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    // pass validation
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must uppercase",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must lower case",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
+      return;
+    }
+    if (password.length < 6) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must six character",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      return;
+    }
+
     signIn(email, password)
       .then((user) => {
-        console.log(user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
-      .catch((error) => alert("email and password not valid"));
+      .catch(
+        (error) =>
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Email or password not valid",
+            showConfirmButton: false,
+            timer: 1500,
+          }),
+        setLoading(false)
+      );
   };
   const handleLoginGoogle = () => {
     signInWithGoogle()
       .then((user) => {
-        alert("login succsessfully");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setLoading(false);
         location?.state ? navigate(location?.state) : navigate("/");
-        console.log(user);
       })
       .catch((error) => {
-        alert("something was wrong");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Email or Password invalid",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setLoading(false);
       });
   };
   return (

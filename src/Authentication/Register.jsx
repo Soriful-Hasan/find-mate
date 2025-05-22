@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { userContext } from "./AuthProvider";
 import { FcGoogle } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
@@ -11,7 +12,7 @@ const Register = () => {
     setUser,
     user,
     setLoading,
-    theme
+    theme,
   } = useContext(userContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -24,15 +25,34 @@ const Register = () => {
 
     // pass validation
     if (!/[A-Z]/.test(password)) {
-      alert("password must uppercase");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must uppercase",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+
       return;
     }
     if (!/[a-z]/.test(password)) {
-      alert("password must lower case");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must lower case",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     }
     if (password.length < 6) {
-      alert("password must six character");
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Password must six character",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       return;
     }
     const userInfo = {
@@ -48,14 +68,25 @@ const Register = () => {
             setUser({ ...user, ...userInfo });
             navigate("/");
             setLoading(false);
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Sign up Successfully",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           })
           .catch((error) => {
             navigate("/");
             setLoading(false);
-            alert("something was wrong");
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "Something was wrong",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
-
-        console.log("login succsessfully", customer);
       })
       .catch((error) => {
         console.log(error);
@@ -65,11 +96,22 @@ const Register = () => {
   const handleRegisterGoogle = () => {
     signInWithGoogle()
       .then((user) => {
-        alert("login succsessfully");
-        console.log(user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((error) => {
-        alert("something was wrong");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something was wrong",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 

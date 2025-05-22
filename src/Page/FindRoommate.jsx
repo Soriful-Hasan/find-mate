@@ -12,7 +12,7 @@ const FindRoommate = () => {
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
     console.log(userData);
-    fetch("http://localhost:3000/addRoommate", {
+    fetch("https://roommate-finder-server-steel.vercel.app/addRoommate", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -54,6 +54,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="title"
               placeholder="Title"
               className={`${
@@ -66,6 +67,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="Location"
               placeholder="Location"
               className={`${
@@ -78,6 +80,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="amount"
               placeholder="Rent Amount"
               className={`${
@@ -90,6 +93,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="roomType"
               className={`${
                 theme === "light"
@@ -106,6 +110,7 @@ const FindRoommate = () => {
           </div>
           <div className="">
             <input
+              required
               type="text"
               name="lifestyle"
               className={`${
@@ -123,6 +128,7 @@ const FindRoommate = () => {
           </div>
           <div className="">
             <input
+              required
               type="text"
               name="description"
               placeholder="Description"
@@ -136,6 +142,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="contact"
               placeholder="Contact Info "
               className={`${
@@ -148,6 +155,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="availability"
               className={`${
                 theme === "light"
@@ -165,6 +173,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="email"
               value={user.email}
               className={`${
@@ -177,6 +186,7 @@ const FindRoommate = () => {
           <div className="">
             <input
               type="text"
+              required
               name="name"
               value={user.displayName}
               placeholder="Soriful Hasan"

@@ -19,7 +19,7 @@ const DetailsRoommate = () => {
 
   const handleLike = (id) => {
     setLike(1);
-    fetch(`http://localhost:3000/addLike/${id}`, {
+    fetch(`https://roommate-finder-server-steel.vercel.app/addLike/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -76,7 +76,7 @@ const DetailsRoommate = () => {
   // }
 
   return (
-    <div className="my-10 mb-25 mx-auto w-8/12 flex flex-col justify-center ">
+    <div className="my-10 mb-25 mx-auto lg:w-8/12 w-full flex flex-col justify-center ">
       {postDetails?.map((details) => (
         <div
           className={`${
@@ -94,8 +94,8 @@ const DetailsRoommate = () => {
             <h1
               className={`${
                 theme === "light"
-                  ? "text-4xl font-bold"
-                  : "text-4xl font-bold text-white"
+                  ? "lg:text-4xl font-bold text-xl"
+                  : "text-4xl font-bold text-white text-xl lg:text-4xl"
               }`}
             >
               {details.title}

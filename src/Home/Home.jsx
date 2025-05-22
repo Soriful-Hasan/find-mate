@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AvailableRoommate from "../Components/RouteComponents/AvailableRoommate";
 import Slider from "../Components/Slider/Slider";
+import TypRiter from "../Components/Slider/TypRiter";
 // import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
   const [availableData, setAvailableData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/roommateData/")
+    fetch("https://roommate-finder-server-steel.vercel.app/roommateData/")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -23,6 +24,7 @@ const Home = () => {
   return (
     <div className="">
       <Slider></Slider>
+      <TypRiter></TypRiter>
       {/* <DotLottieReact
         src="https://lottie.host/bf0f03e5-c9db-41d0-80e0-bd421e8a2b80/BNDc5TWvz9.lottie"
         loop

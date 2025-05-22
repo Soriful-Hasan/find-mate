@@ -7,7 +7,7 @@ const BrowseListing = () => {
   const { user, theme } = useContext(userContext);
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/listingData")
+    fetch("https://roommate-finder-server-steel.vercel.app/listingData")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

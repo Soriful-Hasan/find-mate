@@ -11,19 +11,24 @@ const MyListing = () => {
   const userEmail = user?.email;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/findMyEmail/${userEmail}`)
+    fetch(
+      `https://roommate-finder-server-steel.vercel.app/findMyEmail/${userEmail}`
+    )
       .then((res) => res.json())
       .then((data) => setListingData(data));
   }, [userEmail]);
 
-  fetch(`http://localhost:3000/findMyEmail/${userEmail}`, {
-    method: "GET",
-  })
+  fetch(
+    `https://roommate-finder-server-steel.vercel.app/findMyEmail/${userEmail}`,
+    {
+      method: "GET",
+    }
+  )
     .then((res) => res.json())
     .then((data) => console.log(data));
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/deleteList/${id}`, {
+    fetch(`https://roommate-finder-server-steel.vercel.app/deleteList/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

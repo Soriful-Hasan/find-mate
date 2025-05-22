@@ -24,7 +24,9 @@ const router = createBrowserRouter([
       {
         path: "/roommateDetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommateData/${params.id}`),
+          fetch(
+            `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
+          ),
         element: (
           <ProtectedRoute>
             <DetailsRoommate></DetailsRoommate>
@@ -62,7 +64,9 @@ const router = createBrowserRouter([
       {
         path: "/updateDetails/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/roommateData/${params.id}`),
+          fetch(
+            `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
+          ),
         element: <UpdateDetails></UpdateDetails>,
       },
     ],

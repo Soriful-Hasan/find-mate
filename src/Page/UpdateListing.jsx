@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import { useLoaderData } from "react-router";
+import Swal from "sweetalert2";
 
 const UpdateListing = () => {
   const { user, theme } = useContext(userContext);
@@ -26,7 +27,7 @@ const UpdateListing = () => {
     const userData = Object.fromEntries(formData.entries());
     console.log(userData);
 
-    fetch(`http://localhost:3000/update/${id}`, {
+    fetch(`https://roommate-finder-server-steel.vercel.app/update/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -34,7 +35,15 @@ const UpdateListing = () => {
       body: JSON.stringify(userData),
     })
       .then((res) => res.json())
-      .then((data) => console.log("after update data" + data));
+      .then((data) =>
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Post Updated Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
   };
 
   return (
