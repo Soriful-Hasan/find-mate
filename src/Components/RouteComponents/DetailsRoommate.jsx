@@ -11,7 +11,7 @@ import { FaMobile } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const DetailsRoommate = () => {
-  const {  theme } = useContext(userContext);
+  const { theme } = useContext(userContext);
   console.log(theme);
   const [like, setLike] = useState(1);
   const data = useLoaderData();

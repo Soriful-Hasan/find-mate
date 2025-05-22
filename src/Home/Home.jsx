@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import AvailableRoommate from "../Components/RouteComponents/AvailableRoommate";
 import Slider from "../Components/Slider/Slider";
 import TypRiter from "../Components/Slider/TypRiter";
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import UserSay from "../Components/ExtraSection/UserSay";
+
+
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -30,11 +32,13 @@ const Home = () => {
         loop
         autoplay
       /> */}
-      <div className="min-h-screen  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
         {data?.map((singleData) => (
           <AvailableRoommate singleData={singleData}></AvailableRoommate>
         ))}
       </div>
+      <UserSay></UserSay>
+      
     </div>
   );
 };

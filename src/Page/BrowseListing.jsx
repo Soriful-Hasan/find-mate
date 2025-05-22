@@ -1,24 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { userContext } from "../Authentication/AuthProvider";
 import { CgDetailsMore } from "react-icons/cg";
 
 const BrowseListing = () => {
   const { user, theme } = useContext(userContext);
   const [data, setData] = useState([]);
+  const browsData = useLoaderData();
+
   useEffect(() => {
-    fetch("https://roommate-finder-server-steel.vercel.app/listingData")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-  {
-    /* <Link
-            to={`/roommateDetails/${filterUser._id}`}
-            className="btn"
-          >
-            details
-          </Link> */
-  }
+    setData(browsData);
+  }, [browsData]);
+  // fetch("https://roommate-finder-server-steel.vercel.app/listingData")
+  //   .then((res) => res.json())
+  //   .then((data) => setData(data));
   return (
     <div className={`${theme === "light" ? "" : "text-white bg-[#191E24]"}`}>
       <div className="overflow-x-auto mt-10 mb-30">

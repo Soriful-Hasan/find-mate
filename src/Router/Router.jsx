@@ -11,6 +11,7 @@ import MyListing from "../Page/MyListing";
 import Error from "../Components/Error";
 import DetailsRoommate from "../Components/RouteComponents/DetailsRoommate";
 import UpdateDetails from "../Page/UpdateListing";
+import Loader from "../Components/Loader";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
             <DetailsRoommate></DetailsRoommate>
           </ProtectedRoute>
         ),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/findRoommate",
@@ -52,6 +54,9 @@ const router = createBrowserRouter([
       {
         path: "/browseListing",
         element: <BrowseListing></BrowseListing>,
+        loader: () =>
+          fetch("https://roommate-finder-server-steel.vercel.app/listingData"),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/login",
@@ -68,6 +73,7 @@ const router = createBrowserRouter([
             `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
           ),
         element: <UpdateDetails></UpdateDetails>,
+        hydrateFallbackElement: <Loader></Loader>,
       },
     ],
   },

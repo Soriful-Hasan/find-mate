@@ -157,7 +157,39 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
+
         <div className="navbar-end  space-x-5">
+          <div className="">
+            <a
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user?.displayName}
+              data-tooltip-place="top-end"
+            >
+              <div className="">
+                {loading ? (
+                  <span className="loading loading-spinner loading-xl"></span>
+                ) : (
+                  <div className="">
+                    {user ? (
+                      <div className="">
+                        <img
+                          width={40}
+                          className="rounded-full"
+                          src={user?.photoURL}
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    ) : (
+                      <span className=""></span>
+                    )}
+                  </div>
+                )}
+              </div>
+            </a>
+
+            <Tooltip id="my-tooltip" />
+          </div>
+
           {/* handle dark and light loogle */}
           <div className="">
             <input
@@ -166,35 +198,6 @@ const Navbar = () => {
               onChange={handleToggle}
               className="toggle theme-controller"
             />
-          </div>
-
-          <div className="">
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content={user?.displayName}
-              data-tooltip-place="top-end"
-            >
-              <div className="tooltip tooltip-bottom">
-                {loading ? (
-                  <span className="loading loading-spinner loading-xl"></span>
-                ) : (
-                  <div className="avatar">
-                    <div className="w-12 rounded-full ">
-                      {user ? (
-                        <img
-                          src={user?.photoURL}
-                          referrerPolicy="no-referrer"
-                        />
-                      ) : (
-                        <span></span>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </a>
-
-            <Tooltip id="my-tooltip" />
           </div>
 
           {loading ? (

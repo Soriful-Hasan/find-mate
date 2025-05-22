@@ -31,7 +31,7 @@ const Slider = () => {
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
       onAutoplayTimeLeft={onAutoplayTimeLeft}
-      className="mySwiper mt-10"
+      className="mySwiper mt-10 rounded-lg"
     >
       <SwiperSlide>
         <div className="w-full ">

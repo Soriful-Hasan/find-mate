@@ -21,16 +21,14 @@ const AvailableRoommate = ({ singleData }) => {
       >
         <div className="card-body">
           <h2
-            className={`card-title ${
-              isLight ? "text-[#23BE0A]" : "text-white"
-            }  `}
+            className={`card-title ${isLight ? "text-black" : "text-white"}  `}
           >
             {singleData.title}
           </h2>
           <p
             className={` ${
               isLight
-                ? "text-[#23BE0A] flex place-items-center gap-2"
+                ? "text-black flex place-items-center gap-2"
                 : "text-white flex place-items-center gap-2"
             }  `}
           >
@@ -40,7 +38,7 @@ const AvailableRoommate = ({ singleData }) => {
           <p
             className={` ${
               isLight
-                ? "text-[#23BE0A] flex place-items-center gap-2"
+                ? "text-black flex place-items-center gap-2"
                 : "text-white flex place-items-center gap-2"
             }  `}
           >
@@ -50,7 +48,7 @@ const AvailableRoommate = ({ singleData }) => {
           <p
             className={` ${
               isLight
-                ? "text-[#23BE0A] flex place-items-center gap-2"
+                ? "text-black flex place-items-center gap-2"
                 : "text-white flex place-items-center gap-2"
             }  `}
           >
@@ -60,7 +58,7 @@ const AvailableRoommate = ({ singleData }) => {
           <p
             className={` ${
               isLight
-                ? "text-[#23BE0A] flex place-items-center gap-2"
+                ? "text-black flex place-items-center gap-2"
                 : "text-white flex place-items-center gap-2"
             }  `}
           >
@@ -70,7 +68,7 @@ const AvailableRoommate = ({ singleData }) => {
           <p
             className={` ${
               isLight
-                ? "text-[#23BE0A] line-clamp-2 overflow-hidden text-ellipsis"
+                ? "text-black line-clamp-2 overflow-hidden text-ellipsis"
                 : "text-white line-clamp-2 overflow-hidden text-ellipsis"
             }  `}
           >
