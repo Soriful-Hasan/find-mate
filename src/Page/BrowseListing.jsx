@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { userContext } from "../Authentication/AuthProvider";
+import { CgDetailsMore } from "react-icons/cg";
 
 const BrowseListing = () => {
   const { user } = useContext(userContext);
@@ -19,24 +20,24 @@ const BrowseListing = () => {
           </Link> */
   }
   return (
-    <div className="min-h-screen">
-      <div className="overflow-x-auto">
-        <table className="table">
+    <div className="">
+      <div className="overflow-x-auto mt-10 mb-30">
+        <table className="table border border-gray-200">
           {/* head */}
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Title</th>
-              <th>Location</th>
-              <th>amount</th>
-              <th>Contact</th>
-              <th></th>
+          <thead className="bg-green-100 text-green-700">
+            <tr className="border border-gray-200">
+              <th className="border border-gray-200">User</th>
+              <th className="border border-gray-200">Title</th>
+              <th className="border border-gray-200">Location</th>
+              <th className="border border-gray-200">amount</th>
+              <th className="border border-gray-200">Contact</th>
+              <th className="border border-gray-200">Details</th>
             </tr>
           </thead>
           <tbody>
             {data.map((listing) => (
-              <tr>
-                <td>
+              <tr className="border border-gray-200">
+                <td className="border border-gray-200">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle h-12 w-12">
@@ -48,27 +49,26 @@ const BrowseListing = () => {
                     </div>
                     <div>
                       <div className="font-bold">{listing.name}</div>
-                      <span className="badge badge-ghost badge-sm">
-                        {listing.availability}
-                      </span>
                     </div>
                   </div>
                 </td>
-                <td>{listing.title}</td>
-                <td>
+                <td className="border border-gray-200">{listing.title}</td>
+                <td className="border border-gray-200">
                   {listing.Location}
                   <br />
                 </td>
-                <td>{listing.amount} Taka</td>
-                <td>
+                <td className="border border-gray-200">
+                  {listing.amount} Taka
+                </td>
+                <td className="border border-gray-200">
                   <div className="flex flex-col">
                     <span>{listing.email}</span>
                     <span>{listing.contact}</span>
                   </div>
                 </td>
-                <td>
+                <td className="border border-gray-200">
                   <Link to={`/roommateDetails/${listing._id}`} className="btn">
-                    details
+                    <CgDetailsMore />
                   </Link>
                 </td>
               </tr>

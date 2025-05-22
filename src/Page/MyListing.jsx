@@ -2,7 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaUserEdit } from "react-icons/fa";
+import { BiSolidMessageSquareEdit } from "react-icons/bi";
 
 const MyListing = () => {
   const { user } = useContext(userContext);
@@ -99,19 +100,22 @@ const MyListing = () => {
                 </td>
 
                 <td className="border border-gray-200">
+                  <div className="flex gap-2 ">
+                    <Link
+                      className="btn bg-white"
+                      to={`/updateDetails/${listing._id}`}
+                    >
+                      <FaUserEdit />
+                    </Link>
+                  </div>
+                </td>
+                <td className="border border-gray-200">
                   <button
                     onClick={() => handleDelete(listing._id)}
                     className="btn bg-white"
                   >
                     <FaTrash />
                   </button>
-                </td>
-                <td className="border border-gray-200">
-                  <div className="flex gap-2">
-                    <Link className="btn" to={`/updateDetails/${listing._id}`}>
-                      edit
-                    </Link>
-                  </div>
                 </td>
               </tr>
             ))}
