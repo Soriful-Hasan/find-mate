@@ -19,7 +19,7 @@ const Navbar = () => {
           if (isActive) {
             return theme == "light"
               ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-[#23BE0A]  py-2 px-4 rounded outline-1";
+              : "text-white outline-white   py-2 px-4 rounded outline-1";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -38,7 +38,7 @@ const Navbar = () => {
           if (isActive) {
             return theme == "light"
               ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-[#23BE0A]  py-2 px-4 rounded outline-1";
+              : "text-white outline-white   py-2 px-4 rounded outline-1";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -57,7 +57,7 @@ const Navbar = () => {
           if (isActive) {
             return theme == "light"
               ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-[#23BE0A]  py-2 px-4 rounded outline-1";
+              : "text-white outline-white   py-2 px-4 rounded outline-1";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -76,7 +76,7 @@ const Navbar = () => {
           if (isActive) {
             return theme == "light"
               ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-[#23BE0A]  py-2 px-4 rounded outline-1";
+              : "text-white outline-white  py-2 px-4 rounded outline-1";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"

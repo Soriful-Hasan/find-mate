@@ -20,7 +20,7 @@ const BrowseListing = () => {
           </Link> */
   }
   return (
-    <div className={`${theme === "light" ? "" : "text-white bg-gray-500"}`}>
+    <div className={`${theme === "light" ? "" : "text-white bg-[#191E24]"}`}>
       <div className="overflow-x-auto mt-10 mb-30">
         <table className="table border border-gray-200">
           {/* head */}
@@ -75,12 +75,12 @@ const BrowseListing = () => {
                 <td className="border border-gray-200">
                   <Link
                     to={`/roommateDetails/${listing._id}`}
-                    className="btn bg-white"
+                    className={theme == "light" ? "btn" : "btn bg-gray-800"}
                   >
                     {theme == "light" ? (
                       <CgDetailsMore />
                     ) : (
-                      <CgDetailsMore color="black" />
+                      <CgDetailsMore color="white" />
                     )}
                   </Link>
                 </td>

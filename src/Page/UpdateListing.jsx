@@ -42,7 +42,7 @@ const UpdateListing = () => {
       className={`${
         theme === "light"
           ? "border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white"
-          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-gray-500 text-gray-50"
+          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-[#191E24] text-gray-50"
       }`}
     >
       <h1 className="font-bold  text-2xl text-start">Update Your Post</h1>
@@ -57,7 +57,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
             />
           </div>
@@ -69,7 +69,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               defaultValue={Location}
             />
@@ -82,7 +82,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               defaultValue={amount}
             />
@@ -94,7 +94,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               placeholder="Room Type"
               list="roomType"
@@ -112,7 +112,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               placeholder="Lifestyle Preferences"
               list="lifestyle"
@@ -131,7 +131,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               defaultValue={description}
             />
@@ -144,7 +144,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               defaultValue={contact}
             />
@@ -156,7 +156,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
               placeholder="availability"
               list="availability"
@@ -176,7 +176,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
             />
           </div>
@@ -189,7 +189,7 @@ const UpdateListing = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full text-white bg-gray-400"
+                  : "focus:outline-none input input-md w-full text-white "
               }`}
             />
           </div>
@@ -200,7 +200,7 @@ const UpdateListing = () => {
             className={`${
               theme === "light"
                 ? "btn full w-full bg-[#23BE0A] text-white"
-                : "btn full w-full bg-gray-400  text-white"
+                : "btn full w-full bg-gray-700  text-white"
             }`}
           >
             Update Post

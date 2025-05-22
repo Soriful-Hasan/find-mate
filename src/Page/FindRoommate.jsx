@@ -37,7 +37,7 @@ const FindRoommate = () => {
       className={`${
         theme === "light"
           ? "border my-10 w-8/12 mx-auto p-8 border-gray-200 bg-white"
-          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-gray-500 text-gray-50"
+          : "border my-10 w-8/12 mx-auto p-8 border-gray-400 bg-[#191E24] text-gray-50"
       }`}
     >
       <h1
@@ -59,7 +59,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -71,7 +71,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -83,7 +83,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -94,7 +94,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
               placeholder="Room Type"
               list="roomType"
@@ -111,7 +111,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
               placeholder="Lifestyle Preferences"
               list="lifestyle"
@@ -129,7 +129,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -141,7 +141,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -152,7 +152,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
               placeholder="availability"
               list="availability"
@@ -170,7 +170,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -183,7 +183,7 @@ const FindRoommate = () => {
               className={`${
                 theme === "light"
                   ? "focus:outline-none input input-md w-full bg-white border-green-500"
-                  : "focus:outline-none input input-md w-full bg-gray-400"
+                  : "focus:outline-none input input-md w-full "
               }`}
             />
           </div>
@@ -193,7 +193,7 @@ const FindRoommate = () => {
             className={`${
               theme === "light"
                 ? "btn full w-full bg-[#23BE0A] text-white"
-                : "btn full w-full bg-gray-400  text-white"
+                : "btn full w-full bg-gray-700   text-white"
             }`}
           >
             Add Post

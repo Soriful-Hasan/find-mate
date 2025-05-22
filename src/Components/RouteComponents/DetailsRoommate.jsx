@@ -76,13 +76,13 @@ const DetailsRoommate = () => {
   // }
 
   return (
-    <div className="my-10 mb-25 mx-auto flex flex-col justify-center ">
+    <div className="my-10 mb-25 mx-auto w-8/12 flex flex-col justify-center ">
       {postDetails?.map((details) => (
         <div
           className={`${
             theme == "light"
               ? "p-8 border border-gray-50 bg-white"
-              : "p-8 border border-gray-400 mt-4 bg-gray-500"
+              : "p-8 border border-gray-400 mt-4 bg-[#191E24]"
           }`}
         >
           <p className="text-sm mb-4 ">

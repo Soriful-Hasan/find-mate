@@ -64,7 +64,7 @@ const MyListing = () => {
           className={`${
             theme === "light"
               ? "table border bg-white border-gray-200"
-              : "table border text-white bg-gray-500 border-gray-500"
+              : "table border text-white bg-[#191E24] border-gray-500"
           }`}
         >
           {/* head */}
@@ -103,7 +103,7 @@ const MyListing = () => {
                   </div>
                 </td>
                 <td className="border border-gray-200">{listing.title}</td>
-                <td>
+                <td className="border border-gray-200">
                   {listing.Location}
                   <br />
                 </td>
@@ -114,23 +114,23 @@ const MyListing = () => {
                 <td className="border border-gray-200">
                   <div className="flex gap-2 ">
                     <Link
-                      className="btn bg-white"
+                      className={theme == "light" ? "btn" : "btn bg-gray-800"}
                       to={`/updateDetails/${listing._id}`}
                     >
                       {theme == "light" ? (
                         <FaUserEdit />
                       ) : (
-                        <FaUserEdit color="black" />
+                        <FaUserEdit color="white" />
                       )}
                     </Link>
                   </div>
                 </td>
-                <td className="border border-gray-200">
+                <td className="border ">
                   <button
                     onClick={() => handleDelete(listing._id)}
-                    className="btn bg-white"
+                    className={theme == "light" ? "btn" : "btn bg-gray-800"}
                   >
-                    {theme == "light" ? <FaTrash /> : <FaTrash color="black" />}
+                    {theme == "light" ? <FaTrash /> : <FaTrash color="white" />}
                   </button>
                 </td>
               </tr>
