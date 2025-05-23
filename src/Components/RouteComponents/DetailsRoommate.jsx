@@ -44,7 +44,7 @@ const DetailsRoommate = () => {
   };
 
   return (
-    <div className="my-10 mb-25 mx-auto lg:w-8/12 w-full flex flex-col justify-center ">
+    <div className="min-h-screen mx-auto lg:w-8/12 w-full flex flex-col justify-center ">
       {postDetails?.map((details) => (
         <div
           className={`${
@@ -68,9 +68,21 @@ const DetailsRoommate = () => {
             >
               {details.title}
             </h1>
-            <p className={`${theme == "light" ? "" : "text-white"}`}>
-              Post By {details.name}
-            </p>
+            <div className="">
+              <p className={`${theme == "light" ? "" : "text-white"}`}>
+                Post By {details.name}
+              </p>
+              <div className="flex items-center gap-2 ">
+                <MdEmail color="#FF4C4C" />
+                <p
+                  className={`${
+                    theme === "light" ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  {details.email}
+                </p>
+              </div>
+            </div>
             <div className="border-b border-gray-200 w-full "></div>
           </div>
 
@@ -95,7 +107,7 @@ const DetailsRoommate = () => {
             </p>
             <p className="flex place-items-center gap-2">
               <TbCoinTakaFilled color="#23BE0A" />
-              {details.amount}
+              {details.amount } Taka
             </p>
             <p className="flex place-items-center gap-2">
               <BsHouseFill color="#1E90FF" />
@@ -114,27 +126,17 @@ const DetailsRoommate = () => {
             </p>
             <div className="border-b my-6 border-gray-200 w-full "></div>
             {isLike ? (
-              <div className="space-y-2">
+              <div
+                className={`${
+                  theme == "light"
+                    ? "space-y-2 bg-gray-50 w-sm rounded p-6"
+                    : "space-y-2 bg-gray-700 w-sm rounded p-6"
+                }`}
+              >
                 <div className={`${theme === "light" ? "" : "text-white"}`}>
                   <p className="font-semibold">Contact Information </p>
-                  <p
-                    className={`${
-                      theme === "light" ? "text-gray-900" : "text-white"
-                    }`}
-                  >
-                    {details.name}
-                  </p>
                 </div>
-                <div className="flex items-center gap-2 ">
-                  <MdEmail color="#FF4C4C" />
-                  <p
-                    className={`${
-                      theme === "light" ? "text-gray-900" : "text-white"
-                    }`}
-                  >
-                    {details.email}
-                  </p>
-                </div>
+
                 <div className="flex items-center gap-2 ">
                   <FaMobile color="#23BE0A" />
                   <p
@@ -155,7 +157,7 @@ const DetailsRoommate = () => {
                 <AiFillLike color="#1E90FF" size={40} />
               </span>
             ) : (
-              <div className="cursor-pointer mt-4">
+              <div className="cursor-pointer mt-4 p-2 rounded-full w-sm">
                 <AiFillLike
                   color="#1E90FF"
                   size={40}

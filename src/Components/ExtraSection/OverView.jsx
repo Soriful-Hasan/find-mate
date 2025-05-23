@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { userContext } from "../../Authentication/AuthProvider";
+import TypeWriter from "./TypeWriter";
 
 const OverView = () => {
   const { theme } = useContext(userContext);
@@ -18,9 +19,8 @@ const OverView = () => {
         </div>
         <div className="place-items-center  w-full p-4 xl:w-2xl space-y-2 flex flex-col justify-center">
           <h1 className="text-2xl font-bold">How This Platform Work</h1>
-          <p className=" text-sm">
-            Right way to finding roommate in our website
-          </p>
+          <TypeWriter></TypeWriter>
+          <p className=" text-sm"></p>
           <div
             className={`${
               light

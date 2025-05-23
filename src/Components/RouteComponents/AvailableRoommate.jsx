@@ -73,8 +73,7 @@ const AvailableRoommate = ({ singleData }) => {
                 : "text-white line-clamp-2 overflow-hidden text-ellipsis"
             }  `}
           >
-            {singleData.description} this arean and our distric new room and bes
-            outside inviroment and realy and our new
+            {singleData.description}
           </p>
           <div className="justify-end card-actions">
             <Link

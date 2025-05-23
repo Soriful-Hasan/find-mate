@@ -51,7 +51,7 @@ const UserSay = () => {
   ];
 
   return (
-    <div className=" my-20">
+    <div className=" my-20 ">
       <div
         className={`${
           light ? "text-center mb-8" : "text-center mb-8 text-white"
@@ -61,14 +61,14 @@ const UserSay = () => {
         <p>Genuine Reviews from roommate Seekers </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-10">
         {data.map((info) => (
           <div
             className={`${
               light ? "card bg-base-100  shadow-sm" : "bg-[#191E24]"
             }`}
           >
-            <div className="card-body space-y-4">
+            <div className="card-body space-y-4 cursor-pointer   ">
               <div className="rating">
                 <input
                   type="radio"

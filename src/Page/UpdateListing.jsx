@@ -22,10 +22,9 @@ const UpdateListing = () => {
   const handleUpdate = (e, id) => {
     e.preventDefault();
     const form = e.target;
-  
+
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
-
 
     fetch(`https://roommate-finder-server-steel.vercel.app/update/${id}`, {
       method: "PUT",
@@ -47,7 +46,7 @@ const UpdateListing = () => {
   };
 
   return (
-    <div className="">
+    <div className="min-h-screen">
       <div
         className={`${
           theme === "light"
@@ -129,8 +128,11 @@ const UpdateListing = () => {
                 defaultValue={lifestyle}
               />
               <datalist id="lifestyle">
-                <option value="Smoking"></option>
-                <option value="pet"></option>
+                <option value="Early riser"></option>
+                <option value="Night owl"></option>
+                <option value="Smoker"></option>
+                <option value="Non-smoker"></option>
+                <option value="Pet"></option>
               </datalist>
             </div>
             <div className="">

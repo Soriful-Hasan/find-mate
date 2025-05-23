@@ -1,4 +1,4 @@
-# 🏠 Roommate Finder
+# 🏠 Find Mate
 
 A modern web application to **find or post a roommate**, with real user reviews, light/dark themes, and a clean interface. Whether you're looking for someone to share your space or searching for a place to stay — Roommate Finder makes it easier, safer, and faster.
 
@@ -17,7 +17,6 @@ A modern web application to **find or post a roommate**, with real user reviews,
 - 📝 Post your own shared room details
 - 🌗 Light & Dark Theme support with DaisyUI
 - ✅ Firebase Authentication
-- 💬 Real user reviews (positive feedback section)
 - ❤️ Like feature with restriction (users can’t like their own posts)
 - 🔐 Protected routes for user actions
 - 🗑️ SweetAlert2 confirmation before deleting
@@ -33,12 +32,6 @@ A modern web application to **find or post a roommate**, with real user reviews,
 - **Firebase** – Authentication & Hosting
 - **Express.js + MongoDB** – API & Database
 - **SweetAlert2** – Elegant confirmation dialogs
-
----
-
-## 📸 Screenshots
-
-> (Add your app screenshots here for better visuals)
 
 ---
 

@@ -3,8 +3,6 @@ import AvailableRoommate from "../Components/RouteComponents/AvailableRoommate";
 import Slider from "../Components/Slider/Slider";
 import TypRiter from "../Components/Slider/TypRiter";
 import UserSay from "../Components/ExtraSection/UserSay";
-import CountUp from "react-countup";
-import UserCountUp from "../Components/ExtraSection/CountUp";
 import { userContext } from "../Authentication/AuthProvider";
 import { useLoaderData } from "react-router";
 import OverView from "../Components/ExtraSection/OverView";
