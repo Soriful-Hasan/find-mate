@@ -110,13 +110,7 @@ const DetailsRoommate = () => {
           <div className={`${theme === "light" ? "" : "text-white"}`}>
             <p className="my-6 lg:w-4xl">
               <span className="font-semibold">Room Details</span>:{" "}
-              {details.description}I’m friendly, clean, and respectful, and I’d
-              love to share the space with someone like-minded. If you’re
-              interested or have any questions, feel free to DM me! love to
-              share the space with someone like-minded. If you’re interested or
-              have any questions, feel free to DM me! love to share the space
-              with someone like-minded. If you’re interested or have any
-              questions, feel free to DM me!
+              {details.description}
             </p>
             <div className="border-b my-6 border-gray-200 w-full "></div>
             {isLike ? (

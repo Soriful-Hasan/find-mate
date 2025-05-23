@@ -16,7 +16,7 @@ const Navbar = () => {
     useContext(userContext);
 
   const link = [
-    <div className="flex items-center flex-col gap-4 lg:gap-6 xl:18 lg:flex-row">
+    <div className="flex items-center flex-col  xl:gap-8  lg:flex-row">
       <NavLink
         to={"/"}
         className={({ isActive }) => {

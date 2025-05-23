@@ -66,7 +66,7 @@ const UpdateListing = () => {
                 defaultValue={title}
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
               />
@@ -78,7 +78,7 @@ const UpdateListing = () => {
                 placeholder="Location"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 defaultValue={Location}
@@ -91,7 +91,7 @@ const UpdateListing = () => {
                 placeholder="Rent Amount"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 defaultValue={amount}
@@ -103,7 +103,7 @@ const UpdateListing = () => {
                 name="roomType"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 placeholder="Room Type"
@@ -121,7 +121,7 @@ const UpdateListing = () => {
                 name="lifestyle"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 placeholder="Lifestyle Preferences"
@@ -140,7 +140,7 @@ const UpdateListing = () => {
                 placeholder="Description"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 defaultValue={description}
@@ -153,7 +153,7 @@ const UpdateListing = () => {
                 placeholder="Contact Info "
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 defaultValue={contact}
@@ -165,7 +165,7 @@ const UpdateListing = () => {
                 name="availability"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
                 placeholder="availability"
@@ -185,7 +185,7 @@ const UpdateListing = () => {
                 value={user?.email}
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
               />
@@ -198,7 +198,7 @@ const UpdateListing = () => {
                 placeholder="Soriful Hasan"
                 className={`${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white border-green-500"
+                    ? "focus:outline-none input input-md w-full bg-white "
                     : "focus:outline-none input input-md w-full text-white "
                 }`}
               />
@@ -209,7 +209,7 @@ const UpdateListing = () => {
               type="submit"
               className={`${
                 theme === "light"
-                  ? "btn full w-full bg-[#23BE0A] text-white"
+                  ? "btn full w-full xl:w-4xl bg-[#23BE0A] text-white"
                   : "btn full w-full bg-gray-700  text-white"
               }`}
             >

@@ -7,18 +7,30 @@ import CountUp from "react-countup";
 import UserCountUp from "../Components/ExtraSection/CountUp";
 import { userContext } from "../Authentication/AuthProvider";
 import { useLoaderData } from "react-router";
+import OverView from "../Components/ExtraSection/OverView";
+import NoDataFound from "../Components/NoDataFound";
+import Loader from "../Components/Loader";
 
 const Home = () => {
   const [data, setData] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   const avaiablePost = useLoaderData();
 
   console.log(data);
   const { theme } = useContext(userContext);
   const light = theme == "light";
   useEffect(() => {
-    setData(avaiablePost);
-  }, [data]);
+    fetch("https://roommate-finder-server-steel.vercel.app/roommateData/")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [avaiablePost]);
+
+  if (loading) {
+    return <Loader></Loader>;
+  }
 
   return (
     <div className="">
@@ -34,13 +46,22 @@ const Home = () => {
         <h1 className="text-2xl font-bold">Available Post</h1>
         <p>Find Your best roommate in post </p>
       </div>
-      <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
-        {data?.map((singleData) => (
-          <AvailableRoommate singleData={singleData}></AvailableRoommate>
-        ))}
-      </div>
+      {data.length > 0 ? (
+        <>
+          <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
+            {data?.map((singleData) => (
+              <AvailableRoommate singleData={singleData}></AvailableRoommate>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <NoDataFound></NoDataFound>
+        </>
+      )}
+
+      <OverView></OverView>
       <UserSay></UserSay>
-      <UserCountUp></UserCountUp>
     </div>
   );
 };
