@@ -64,7 +64,7 @@ const UserCountUp = () => {
               <CountUp end={10000} enableScrollSpy />
             </div>
             <p className={`${light ? "text-gray-500" : "text-gray-100"}`}>
-              Positive Review
+              Active Users
             </p>
           </div>
         </div>

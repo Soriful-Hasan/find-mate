@@ -1,12 +1,50 @@
-# React + Vite
+# 🏠 Roommate Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application to **find or post a roommate**, with real user reviews, light/dark themes, and a clean interface. Whether you're looking for someone to share your space or searching for a place to stay — Roommate Finder makes it easier, safer, and faster.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo & Repository
 
-## Expanding the ESLint configuration
+- 🌐 **Live Site:** [https://roommate-finder-45a3b.web.app/]
+- 💻 **GitHub Repo:** [https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-soriful300]
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- 🔍 Browse listings to find a perfect roommate
+- 📝 Post your own shared room details
+- 🌗 Light & Dark Theme support with DaisyUI
+- ✅ Firebase Authentication
+- 💬 Real user reviews (positive feedback section)
+- ❤️ Like feature with restriction (users can’t like their own posts)
+- 🔐 Protected routes for user actions
+- 🗑️ SweetAlert2 confirmation before deleting
+- 📊 Success Metrics: 1000+ Roommates Matched, 20000+ Users, 10000+ Reviews
+
+---
+
+## 🛠️ Built With
+
+- **React** – UI Library
+- **Tailwind CSS** & **DaisyUI** – Styling & Theming
+- **React Router** – Routing
+- **Firebase** – Authentication & Hosting
+- **Express.js + MongoDB** – API & Database
+- **SweetAlert2** – Elegant confirmation dialogs
+
+---
+
+## 📸 Screenshots
+
+> (Add your app screenshots here for better visuals)
+
+---
+
+## ⚙️ Setup Instructions
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/roommate-finder.git
+   ```

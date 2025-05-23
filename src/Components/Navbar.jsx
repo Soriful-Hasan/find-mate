@@ -150,7 +150,8 @@ const Navbar = () => {
                   : "text-white text-sm lg:text-xl  font-semibold"
               }`}
             >
-              Room mate
+              Find
+              <span className="font-bold ml-1">Mate</span>
             </a>
           </div>
         </div>
