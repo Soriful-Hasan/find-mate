@@ -4,6 +4,7 @@ import { userContext } from "../Authentication/AuthProvider";
 import { CgDetailsMore } from "react-icons/cg";
 import Loader from "../Components/Loader";
 import NoDataFound from "../Components/NoDataFound";
+import { Helmet } from "react-helmet-async";
 
 const BrowseListing = () => {
   const { user, theme } = useContext(userContext);
@@ -25,6 +26,9 @@ const BrowseListing = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Browse listing</title>
+      </Helmet>
       {data.length > 0 ? (
         <div>
           <div className="min-h-screen ">

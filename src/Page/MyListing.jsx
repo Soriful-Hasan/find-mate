@@ -6,6 +6,7 @@ import { FaTrash, FaUserEdit } from "react-icons/fa";
 import { BiSolidMessageSquareEdit } from "react-icons/bi";
 import NoDataFound from "../Components/NoDataFound";
 import Loader from "../Components/Loader";
+import { Helmet } from "react-helmet-async";
 
 const MyListing = () => {
   const { user, theme } = useContext(userContext);
@@ -80,6 +81,9 @@ const MyListing = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>My Listing</title>
+      </Helmet>
       {listingData.length > 0 ? (
         <div>
           <div className="min-h-screen ">

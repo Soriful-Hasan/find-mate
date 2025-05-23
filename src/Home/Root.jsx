@@ -10,7 +10,7 @@ const Root = () => {
   const isLight = theme === "light";
   const { state } = useNavigate();
   return (
-    <div className={`${isLight ? "bg-gray-50" : "bg-[#121212]"}`}>
+    <div className={`${isLight ? "bg-gray-50 pt-16" : "bg-[#121212] pt-16"} `}>
       <Navbar></Navbar>
 
       <div className="w-11/12 mx-auto ">

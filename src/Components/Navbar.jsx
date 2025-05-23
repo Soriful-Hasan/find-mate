@@ -117,13 +117,13 @@ const Navbar = () => {
       );
   };
   return (
-    <div>
+    <div className=" ">
       <div
         className={`${
           theme === "light"
-            ? "navbar bg-white shadow-sm"
-            : "navbar shadow-sm bg-[#191E24] "
-        }`}
+            ? "navbar  bg-white shadow-sm fixed top-0 z-50 "
+            : "navbar shadow-sm bg-[#191E24] fixed top-0 z-50"
+        } `}
       >
         <div className="navbar-start ">
           <div className="dropdown">

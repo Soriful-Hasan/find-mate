@@ -8,6 +8,7 @@ import { useLoaderData } from "react-router";
 import OverView from "../Components/ExtraSection/OverView";
 import NoDataFound from "../Components/NoDataFound";
 import Loader from "../Components/Loader";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -32,6 +33,9 @@ const Home = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Slider></Slider>
 
       <div

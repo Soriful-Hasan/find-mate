@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const FindRoommate = () => {
   const { user, theme } = useContext(userContext);
@@ -35,6 +36,9 @@ const FindRoommate = () => {
   };
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Add Post</title>
+      </Helmet>
       <div
         className={`${
           theme === "light"

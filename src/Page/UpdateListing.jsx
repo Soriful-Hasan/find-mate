@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { userContext } from "../Authentication/AuthProvider";
 import { useLoaderData } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateListing = () => {
   const { user, theme } = useContext(userContext);
@@ -47,6 +48,9 @@ const UpdateListing = () => {
 
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Update Listing</title>
+      </Helmet>
       <div
         className={`${
           theme === "light"

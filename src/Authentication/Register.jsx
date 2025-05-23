@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { userContext } from "./AuthProvider";
 import { FcGoogle } from "react-icons/fc";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const {
@@ -122,6 +123,9 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div
         className={`${
           theme === "light"
