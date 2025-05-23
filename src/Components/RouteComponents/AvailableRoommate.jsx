@@ -12,8 +12,9 @@ const AvailableRoommate = ({ singleData }) => {
   const isLight = theme === "light";
 
   return (
-    <div>
+    <div className="">
       {/* parent div */}
+ 
       <div
         className={`${
           isLight ? "card bg-base-100 card-md shadow-sm" : "bg-[#191E24] card"

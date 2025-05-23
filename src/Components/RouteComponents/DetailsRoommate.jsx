@@ -12,7 +12,7 @@ import { MdEmail } from "react-icons/md";
 
 const DetailsRoommate = () => {
   const { theme } = useContext(userContext);
-  console.log(theme);
+
   const [like, setLike] = useState(1);
   const data = useLoaderData();
   const [postDetails, setPostDetails] = useState(data);
@@ -45,7 +45,7 @@ const DetailsRoommate = () => {
   //   const logUserId = {
   //     userID,
   //   };
-  //   console.log(logUserId);
+
   //   fetch(`http://localhost:3000/userLiked/${id}`, {
   //     method: "PUT",
   //     headers: {
@@ -64,10 +64,9 @@ const DetailsRoommate = () => {
   // }, []);
   // const desId = getId[0];
   // const objDesId = desId?.userLogId;
-  // console.log("objDesId", objDesId);
-  // console.log(desId);
+ 
   // const filterId = logId.filter((id) => id.userId == user?.uid);
-  // console.log(filterId);
+
   // const updatedPosts = [...postDetails];
   // const index = updatedPosts.findIndex((post) => post._id == id);
   // if (index != -1) {

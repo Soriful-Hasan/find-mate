@@ -25,7 +25,7 @@ const MyListing = () => {
     }
   )
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => {});
 
   const handleDelete = (id) => {
     fetch(`https://roommate-finder-server-steel.vercel.app/deleteList/${id}`, {

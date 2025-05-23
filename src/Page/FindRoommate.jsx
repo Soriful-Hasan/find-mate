@@ -8,10 +8,10 @@ const FindRoommate = () => {
   const handleSubmitData = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form);
+ 
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
-    console.log(userData);
+    
     fetch("https://roommate-finder-server-steel.vercel.app/addRoommate", {
       method: "POST",
       headers: {

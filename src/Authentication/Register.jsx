@@ -14,7 +14,6 @@ const Register = () => {
     setLoading,
     theme,
   } = useContext(userContext);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -59,7 +58,7 @@ const Register = () => {
       displayName: name,
       photoURL: photo,
     };
-    console.log(photo);
+
     signUp(email, password)
       .then((customer) => {
         //user update profile
@@ -88,9 +87,15 @@ const Register = () => {
             });
           });
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) =>
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Something was wrong",
+          showConfirmButton: false,
+          timer: 1500,
+        })
+      );
   };
 
   const handleRegisterGoogle = () => {

@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AvailableRoommate from "../Components/RouteComponents/AvailableRoommate";
 import Slider from "../Components/Slider/Slider";
 import TypRiter from "../Components/Slider/TypRiter";
 import UserSay from "../Components/ExtraSection/UserSay";
-
-
+import CountUp from "react-countup";
+import UserCountUp from "../Components/ExtraSection/CountUp";
+import { userContext } from "../Authentication/AuthProvider";
 
 const Home = () => {
   const [data, setData] = useState([]);
   const [availableData, setAvailableData] = useState([]);
-
+  const { theme } = useContext(userContext);
+  const light = theme == "light";
   useEffect(() => {
     fetch("https://roommate-finder-server-steel.vercel.app/roommateData/")
       .then((res) => res.json())
@@ -26,19 +28,29 @@ const Home = () => {
   return (
     <div className="">
       <Slider></Slider>
-      <TypRiter></TypRiter>
+
       {/* <DotLottieReact
         src="https://lottie.host/bf0f03e5-c9db-41d0-80e0-bd421e8a2b80/BNDc5TWvz9.lottie"
         loop
         autoplay
       /> */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
+      <div
+        className={`${
+          light
+            ? "place-items-center space-y-5 my-10"
+            : "place-items-center text-white my-10"
+        }`}
+      >
+        <h1 className="text-2xl font-bold">Available Post</h1>
+        <p>Find Your best roommate in post </p>
+      </div>
+      <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
         {data?.map((singleData) => (
           <AvailableRoommate singleData={singleData}></AvailableRoommate>
         ))}
       </div>
       <UserSay></UserSay>
-      
+      <UserCountUp></UserCountUp>
     </div>
   );
 };

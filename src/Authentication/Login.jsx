@@ -9,7 +9,7 @@ const Login = () => {
     useContext(userContext);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;

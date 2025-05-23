@@ -4,7 +4,7 @@ import { userContext } from "../../Authentication/AuthProvider";
 const UserSay = () => {
   const { theme } = useContext(userContext);
   const light = theme == "light";
-  console.log(light);
+
   const data = [
     {
       review:
@@ -51,14 +51,14 @@ const UserSay = () => {
   ];
 
   return (
-    <div className=" my-8 mt-20">
+    <div className=" my-20">
       <div
         className={`${
           light ? "text-center mb-8" : "text-center mb-8 text-white"
         }`}
       >
         <h1 className="text-2xl font-bold">What Our Users Say</h1>
-        <p>Genuine Reviews from job Seekers and Employers</p>
+        <p>Genuine Reviews from roommate Seekers </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

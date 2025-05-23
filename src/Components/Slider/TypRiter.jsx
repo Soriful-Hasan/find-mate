@@ -4,13 +4,13 @@ const TypRiter = () => {
   return (
     <div className="App">
       <h1
-        style={{ paddingTop: "5rem", margin: "auto 0", fontWeight: "normal" }}
+        style={{ paddingTop: "1rem", margin: "auto 0", fontWeight: "normal" }}
       >
         <span style={{ color: "green-500", fontWeight: "bold" }}>
           {/* Style will be inherited from the parent element */}
           <Typewriter
             words={[
-              "Easy to find Roommate on our website",
+              " More people are finding their ideal roommates with us—be part of thejourney!",
               "Our website is best solution for finding roommate",
             ]}
             loop={5}

@@ -31,7 +31,7 @@ const BrowseListing = () => {
               <th className="border border-gray-200">Title</th>
               <th className="border border-gray-200">Location</th>
               <th className="border border-gray-200">amount</th>
-              <th className="border border-gray-200">Contact</th>
+             
               <th className="border border-gray-200">Details</th>
             </tr>
           </thead>
@@ -61,12 +61,7 @@ const BrowseListing = () => {
                 <td className="border border-gray-200">
                   {listing.amount} Taka
                 </td>
-                <td className="border border-gray-200">
-                  <div className="flex flex-col">
-                    <span>{listing.email}</span>
-                    <span>{listing.contact}</span>
-                  </div>
-                </td>
+                
                 <td className="border border-gray-200">
                   <Link
                     to={`/roommateDetails/${listing._id}`}
