@@ -61,10 +61,10 @@ const MyListing = () => {
     // );
     // setListingData(filterDelete);
   };
-  
+
   return (
     <div className="min-h-screen ">
-      <div className="overflow-x-auto mt-4 ">
+      <div className="overflow-x-auto mt-10">
         <table
           className={`${
             theme === "light"

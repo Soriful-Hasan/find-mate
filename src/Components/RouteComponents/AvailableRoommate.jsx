@@ -14,7 +14,7 @@ const AvailableRoommate = ({ singleData }) => {
   return (
     <div className="">
       {/* parent div */}
- 
+
       <div
         className={`${
           isLight ? "card bg-base-100 card-md shadow-sm" : "bg-[#191E24] card"
@@ -78,6 +78,7 @@ const AvailableRoommate = ({ singleData }) => {
           </p>
           <div className="justify-end card-actions">
             <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to={`/roommateDetails/${singleData._id}`}
               className="btn bg-[#23BE0A] text-white rounded-lg"
             >

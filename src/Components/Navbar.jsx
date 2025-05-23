@@ -121,17 +121,17 @@ const Navbar = () => {
       <div
         className={`${
           theme === "light"
-            ? "navbar shadow-sm "
-            : "navbar shadow-sm bg-[#191E24]"
+            ? "navbar bg-white shadow-sm"
+            : "navbar shadow-sm bg-[#191E24] "
         }`}
       >
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               {theme == "light" ? (
                 <RiMenu3Line size={25} />
               ) : (
-                <RiMenu3Line size={25} color="white"/>
+                <RiMenu3Line size={25} color="white" />
               )}
             </div>
             <ul

@@ -10,42 +10,42 @@ const UserSay = () => {
       review:
         "I was really stressed about finding a roommate, but this platform made it so simple. Within 24 hours, I connected with someone who was a great fit. The process was smooth and super user-friendly!",
       name: "don jo",
-      position: "senior manager",
+      position: "Student",
       img: "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg?semt=ais_hybrid&w=740",
     },
     {
       review:
         "Posting my shared room took less than five minutes, and I started receiving responses almost immediately. The interface is clean, and everything feels secure and professional.",
       name: "Jihad rof",
-      position: "senior manager",
+      position: "Student",
       img: "https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=",
     },
     {
       review:
         "What I loved most was the filtering options. I could search by lifestyle, budget, and location—made it so easy to find someone who matched my preferences perfectly.",
-      name: "Junayed Hok",
-      position: "senior manager",
+      name: "Juhad Khan",
+      position: "Salaried person",
       img: "https://media.istockphoto.com/id/1253034955/photo/portrait-of-young-handsome-smiling-man-dressed-in-shirt-and-eyeglasses-standing-with-arms.jpg?s=612x612&w=0&k=20&c=PoGofmoSzId2NOMpEzXWgiZMK6y-VGKgIKa6awPT4qM=",
     },
     {
       review:
         "I was worried about safety, but this website made me feel confident throughout. Everyone I interacted with was verified, and the support team was responsive and friendly.",
       name: "Isfak Hok",
-      position: "senior manager",
+      position: "Student",
       img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       review:
         "This site honestly exceeded my expectations. It’s better than most other roommate apps I’ve tried. Great design, fast loading, and real users looking for real connections.",
       name: "Jisan Hasan",
-      position: "senior manager",
+      position: "Student",
       img: "https://t3.ftcdn.net/jpg/10/42/56/90/360_F_1042569030_ftNnbSjmc647kFj3aVxc9IPG06sb2FaY.jpg",
     },
     {
       review:
         "I met my current roommate here and we've been sharing an apartment happily for 3 months now. It’s a reliable site and made the whole roommate-finding process stress-free!",
       name: "Isfak jihan",
-      position: "senior manager",
+      position: "Student",
       img: "https://t3.ftcdn.net/jpg/01/70/55/14/360_F_170551453_pyOx70HmcDXgP5sLUBUQ5ReeaWDIEaut.jpg",
     },
   ];

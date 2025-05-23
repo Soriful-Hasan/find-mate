@@ -11,13 +11,16 @@ import { FaMobile } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
 const DetailsRoommate = () => {
-  const { theme } = useContext(userContext);
+  const { theme, user } = useContext(userContext);
+  const [isLike, SetLike] = useState(false);
 
   const [like, setLike] = useState(1);
   const data = useLoaderData();
   const [postDetails, setPostDetails] = useState(data);
 
   const handleLike = (id) => {
+    SetLike(true);
+    console.log(isLike);
     setLike(1);
     fetch(`https://roommate-finder-server-steel.vercel.app/addLike/${id}`, {
       method: "PATCH",
@@ -39,40 +42,6 @@ const DetailsRoommate = () => {
         }
       });
   };
-
-  // const handleUserIsLike = (id) => {
-  //   const userID = user?.uid;
-  //   const logUserId = {
-  //     userID,
-  //   };
-
-  //   fetch(`http://localhost:3000/userLiked/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(logUserId),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {});
-  // };
-
-  // useState(() => {
-  //   fetch("http://localhost:3000/userLogId")
-  //     .then((res) => res.json())
-  //     .then((data) => setGetId(data));
-  // }, []);
-  // const desId = getId[0];
-  // const objDesId = desId?.userLogId;
- 
-  // const filterId = logId.filter((id) => id.userId == user?.uid);
-
-  // const updatedPosts = [...postDetails];
-  // const index = updatedPosts.findIndex((post) => post._id == id);
-  // if (index != -1) {
-  //   updatedPosts[index].isLiked = true;
-  //   setPostDetails(updatedPosts);
-  // }
 
   return (
     <div className="my-10 mb-25 mx-auto lg:w-8/12 w-full flex flex-col justify-center ">
@@ -150,7 +119,7 @@ const DetailsRoommate = () => {
               questions, feel free to DM me!
             </p>
             <div className="border-b my-6 border-gray-200 w-full "></div>
-            {details.like > 0 ? (
+            {isLike ? (
               <div className="space-y-2">
                 <div className={`${theme === "light" ? "" : "text-white"}`}>
                   <p className="font-semibold">Contact Information </p>
@@ -187,18 +156,19 @@ const DetailsRoommate = () => {
               <></>
             )}
 
-            <div className="cursor-pointer mt-4">
-              {details.like > 0 ? (
-                <div className="cursor-not-allowed">
-                  <AiFillLike color="#1E90FF" size={40} />
-                </div>
-              ) : (
-                <AiOutlineLike
+            {details.email === user.email ? (
+              <span className="cursor-not-allowed">
+                <AiFillLike color="#1E90FF" size={40} />
+              </span>
+            ) : (
+              <div className="cursor-pointer mt-4">
+                <AiFillLike
+                  color="#1E90FF"
                   size={40}
                   onClick={() => handleLike(details._id)}
                 />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       ))}
