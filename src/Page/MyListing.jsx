@@ -61,7 +61,7 @@ const MyListing = () => {
     // );
     // setListingData(filterDelete);
   };
-  const handleEdit = (id) => {};
+  
   return (
     <div className="min-h-screen ">
       <div className="overflow-x-auto mt-4 ">
