@@ -58,6 +58,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        location?.state ? navigate(location?.state) : navigate("/");
       })
       .catch(
         (error) =>
@@ -151,7 +152,7 @@ const Login = () => {
                 className={`${
                   theme === "light"
                     ? "btn full w-full bg-[#23BE0A] mt-4 text-white"
-                    : "btn full w-full bg-white text-black mt-4 "
+                    : "btn full w-full bg-[#1E2939] text-white mt-4 "
                 }`}
               >
                 Login
@@ -176,7 +177,11 @@ const Login = () => {
       <div className=" w-full  flex justify-center">
         <button
           onClick={handleLoginGoogle}
-          className="btn bg-white w-sm rounded-2xl text-black border-[#e5e5e5]"
+          className={`${
+            theme === "light"
+              ? "btn bg-white w-sm rounded-2xl text-black border-[#e5e5e5] "
+              : "bg-[#1E2939] w-sm text-white btn text-black  rounded-2xl"
+          }`}
         >
           <FcGoogle />
           Continue with Google

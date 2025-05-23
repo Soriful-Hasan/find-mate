@@ -176,15 +176,18 @@ const Register = () => {
                 className={`${
                   theme === "light"
                     ? "btn full w-full bg-[#23BE0A] mt-4 text-white"
-                    : "btn full w-full bg-white text-black mt-4 "
+                    : "btn full w-full bg-[#1E2939] text-white mt-4 "
                 }`}
               >
                 Register
               </button>
             </div>
-            <div>
-              <Link to={"/login"} className="link link-hover">
-                Already have an account? <span className="link">Login</span>
+            <div className="mt-4">
+              <Link to={"/login"} className="link link-hover font-semibold ">
+                Already have an account?{" "}
+                <span className="link link-hover underline text-[#23BE0A]">
+                  Login
+                </span>
               </Link>
             </div>
           </form>
@@ -198,7 +201,11 @@ const Register = () => {
       <div className=" w-full  flex justify-center">
         <button
           onClick={handleRegisterGoogle}
-          className="btn bg-white w-sm rounded-2xl text-black border-[#e5e5e5]"
+          className={`${
+            theme === "light"
+              ? "btn bg-white w-sm rounded-2xl text-black border-[#e5e5e5] "
+              : "bg-[#1E2939] w-sm text-white btn text-black  rounded-2xl"
+          }`}
         >
           <FcGoogle />
           Continue with Google

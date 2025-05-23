@@ -44,14 +44,17 @@ body {
   height: 100%;
   object-fit: cover;
 }
+.swiper-wrapper swiper-button-prev {
+  display: none;
+}
 
 .autoplay-progress span {
   display: none;
-} 
+}
 
-.swiper-button-prev{
+.swiper-button-prev {
   display: none;
 }
-.swiper-button-next{
+.swiper-button-next {
   display: none;
 }

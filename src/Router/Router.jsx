@@ -21,6 +21,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+        loader: () =>
+          fetch(
+            `https://roommate-finder-server-steel.vercel.app/roommateData/`
+          ),
+        hydrateFallbackElement: <Loader></Loader>,
       },
       {
         path: "/roommateDetails/:id",

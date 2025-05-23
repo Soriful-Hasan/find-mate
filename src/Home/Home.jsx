@@ -6,34 +6,24 @@ import UserSay from "../Components/ExtraSection/UserSay";
 import CountUp from "react-countup";
 import UserCountUp from "../Components/ExtraSection/CountUp";
 import { userContext } from "../Authentication/AuthProvider";
+import { useLoaderData } from "react-router";
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const [availableData, setAvailableData] = useState([]);
+
+  const avaiablePost = useLoaderData();
+
+  console.log(data);
   const { theme } = useContext(userContext);
   const light = theme == "light";
   useEffect(() => {
-    fetch("https://roommate-finder-server-steel.vercel.app/roommateData/")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  useEffect(() => {
-    const filterAvailable = data.filter(
-      (available) => available.availability == "Available"
-    );
-    setAvailableData(filterAvailable);
+    setData(avaiablePost);
   }, [data]);
 
   return (
     <div className="">
       <Slider></Slider>
 
-      {/* <DotLottieReact
-        src="https://lottie.host/bf0f03e5-c9db-41d0-80e0-bd421e8a2b80/BNDc5TWvz9.lottie"
-        loop
-        autoplay
-      /> */}
       <div
         className={`${
           light
