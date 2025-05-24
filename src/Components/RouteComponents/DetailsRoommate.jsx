@@ -107,7 +107,7 @@ const DetailsRoommate = () => {
             </p>
             <p className="flex place-items-center gap-2">
               <TbCoinTakaFilled color="#23BE0A" />
-              {details.amount } Taka
+              {details.amount} Taka
             </p>
             <p className="flex place-items-center gap-2">
               <BsHouseFill color="#1E90FF" />
@@ -120,7 +120,7 @@ const DetailsRoommate = () => {
           </div>
 
           <div className={`${theme === "light" ? "" : "text-white"}`}>
-            <p className="my-6 lg:w-4xl">
+            <p className="my-6 ">
               <span className="font-semibold">Room Details</span>:{" "}
               {details.description}
             </p>
@@ -129,8 +129,8 @@ const DetailsRoommate = () => {
               <div
                 className={`${
                   theme == "light"
-                    ? "space-y-2 bg-gray-50 w-sm rounded p-6"
-                    : "space-y-2 bg-gray-700 w-sm rounded p-6"
+                    ? "space-y-2 bg-gray-50 lg:w-sm rounded p-6"
+                    : "space-y-2 bg-gray-700 lg:w-sm rounded p-6"
                 }`}
               >
                 <div className={`${theme === "light" ? "" : "text-white"}`}>
