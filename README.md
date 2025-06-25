@@ -6,9 +6,9 @@ A modern web application to **find or post a roommate**, with real user reviews,
 
 ## 🔗 Live Demo & Repository
 
-- 🌐 **Live Site:** [https://roommate-finder-45a3b.web.app/]
-- 💻 **GitHub Repo:** [https://github.com/Programming-Hero-Web-Course4/b11a10-client-side-soriful300]
-
+- 🌐 **Live Site:** [https://roommate-finder-45a3b.web.app/](https://roommate-finder-45a3b.web.app/)
+- 💻 **Client-side Repo:** (https://github.com/Soriful-Hasan/find-mate.git)
+- 🔧 **Server-side Repo:** [https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-soriful300](https://github.com/Programming-Hero-Web-Course4/b11a10-server-side-soriful300)
 ---
 
 ## ✨ Features
