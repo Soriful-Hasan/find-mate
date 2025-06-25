@@ -6,9 +6,9 @@ A modern web application to **find or post a roommate**, with real user reviews,
 
 ## 🔗 Live Demo & Repository
 
-- 🌐 **Live Site:** [https://roommate-finder-45a3b.web.app/](https://roommate-finder-45a3b.web.app/)
-- 💻 **Client-side Repo:** (https://github.com/Soriful-Hasan/find-mate.git)
-- 🔧 **Server-side Repo:** (https://github.com/Soriful-Hasan/find-mate-server)
+- 🔗 [Visit the Live Site](https://roommate-finder-45a3b.web.app/)
+- 💻 [Client-side Repo:](https://github.com/Soriful-Hasan/find-mate.git)
+- 🔧 [Server-side Repo:](https://github.com/Soriful-Hasan/find-mate-server)
 ---
 
 ## ✨ Features
