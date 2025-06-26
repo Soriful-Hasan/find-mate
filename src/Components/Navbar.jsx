@@ -94,7 +94,7 @@ const Navbar = () => {
         </span>
       </NavLink>
       <NavLink
-        to={"/support"}
+        to={"/about"}
         className={({ isActive }) => {
           if (isActive) {
             return theme == "light"
@@ -108,7 +108,7 @@ const Navbar = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <BiSupport /> Support
+          <BiSupport /> about
         </span>
       </NavLink>
     </div>,

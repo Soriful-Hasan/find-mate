@@ -44,7 +44,7 @@ const DetailsRoommate = () => {
   };
 
   return (
-    <div className="min-h-screen mx-auto lg:w-8/12 w-full flex flex-col justify-center ">
+    <div className="min-h-screen mx-auto lg:w-11/12 w-full flex flex-col justify-center ">
       {postDetails?.map((details) => (
         <div
           className={`${
@@ -120,7 +120,7 @@ const DetailsRoommate = () => {
           </div>
 
           <div className={`${theme === "light" ? "" : "text-white"}`}>
-            <p className="my-6 ">
+            <p className="my-10 ">
               <span className="font-semibold">Room Details</span>:{" "}
               {details.description}
             </p>

@@ -15,6 +15,8 @@ import Loader from "../Components/Loader";
 import DashBoard from "../Layout/DashBoard/DashBoard";
 import DashboardMain from "../Page/DashBoard/DashboardMain";
 import UpdateProfile from "../Page/DashBoard/UpdateProfile";
+import ContactUs from "../Page/ContactUs/ContactUs";
+import AboutUs from "../Page/AboutUs/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "contact",
+        Component: ContactUs,
+      },
+      {
+        path: "about",
+        Component: AboutUs,
       },
       {
         path: "/roommateDetails/:id",
@@ -61,6 +71,7 @@ const router = createBrowserRouter([
         path: "dashBoardMain",
         Component: DashboardMain,
       },
+
       {
         path: "findRoommate",
         element: (
