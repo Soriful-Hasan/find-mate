@@ -9,87 +9,117 @@ const Footer = () => {
   const light = theme == "light";
   return (
     <footer
-      className={`${
-        light
-          ? "footer sm:footer-horizontal shadow-sm bg-white text-black p-10 "
-          : "footer sm:footer-horizontal shadow-sm bg-[#191E24] text-white p-10"
+      className={`footer sm:footer-horizontal shadow-sm p-10 ${
+        light ? "bg-white text-black" : "bg-[#191E24] text-white"
       }`}
     >
-      <aside className="space-y-2">
-        <img height={30} width={30} src="/logo.png" alt="" />
-        <p>
-          <a
-            className={`${
-              theme == "light"
-                ? "text-black text-sm lg:text-xl  font-semibold"
-                : "text-white text-sm lg:text-xl  font-semibold"
-            }`}
-          >
-            Find
-            <span className="font-bold ml-1">Mate</span>
-          </a>
-          <br />
-          Connecting Roommate care, since - 2025
-        </p>
-        <div className="flex gap-4 ">
-          <a href="https://www.instagram.com/hasibhasan1642/" target="_blank">
-            <FaInstagram size={24}></FaInstagram>
-          </a>
-          <a href="https://www.facebook.com/sorifulhasan300" target="_blank">
-            <MdFacebook size={24}></MdFacebook>
-          </a>
-          <a href="https://www.youtube.com/@sorifullhasan3818" target="_blank">
-            <FaYoutube size={24}></FaYoutube>
-          </a>
-          <a href="https://telegram.org/" target="_blank">
-            <FaTelegram size={24}></FaTelegram>
-          </a>
-        </div>
-      </aside>
-      <nav>
-        <h6 className="footer-title">Services</h6>
-        <NavLink
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to={"/"}
-          className="link link-hover"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to={"/findRoommate"}
-          className="link link-hover"
-        >
-          Add Roommate
-        </NavLink>
-        <NavLink
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to={"/browseListing"}
-          className="link link-hover"
-        >
-          Browse Listing
-        </NavLink>
-        <NavLink
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to={"/myListing"}
-          className="link link-hover"
-        >
-          My Listing
-        </NavLink>
-      </nav>
-      <nav>
-        <h6 className="footer-title">Company</h6>
-        <a className="link link-hover">About RoommateFind</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Careers</a>
-        <a className="link link-hover">Blog</a>
-      </nav>
-      <nav>
-        <h6 className="footer-title">Terms & Condition</h6>
-        <a className="link link-hover">Privacy Policy</a>
-        <a className="link link-hover">Community Guidelines</a>
-        <a className="link link-hover">Safety Tips</a>
-      </nav>
+      <div className="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* Logo & Description */}
+        <aside className="space-y-2">
+          <img src="/logo.png" alt="Logo" width={30} height={30} />
+          <p>
+            <a
+              className={`text-sm lg:text-xl font-semibold ${
+                theme === "light" ? "text-black" : "text-white"
+              }`}
+            >
+              Find<span className="font-bold ml-1">Mate</span>
+            </a>
+            <br />
+            Connecting Roommate care, since - 2025
+          </p>
+          <div className="flex gap-4">
+            <a
+              href="..."
+              target="_blank"
+              rel="noreferrer"
+              className="hover:scale-110 transition"
+            >
+              <FaInstagram size={24} color="#E1306C" />
+            </a>
+            <a
+              href="..."
+              target="_blank"
+              rel="noreferrer"
+              className="hover:scale-110 transition"
+            >
+              <MdFacebook size={24} color="#1877F2" />
+            </a>
+            <a
+              href="..."
+              target="_blank"
+              rel="noreferrer"
+              className="hover:scale-110 transition"
+            >
+              <FaYoutube size={24} color="#FF0000" />
+            </a>
+            <a
+              href="..."
+              target="_blank"
+              rel="noreferrer"
+              className="hover:scale-110 transition"
+            >
+              <FaTelegram size={24} color="#229ED9" />
+            </a>
+          </div>
+        </aside>
+
+        {/* Services Links */}
+        <nav>
+          <h6 className="footer-title">Services</h6>
+          <div className="flex flex-col gap-3">
+            <NavLink
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="link link-hover"
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/findRoommate"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="link link-hover"
+            >
+              Add Roommate
+            </NavLink>
+            <NavLink
+              to="/browseListing"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="link link-hover"
+            >
+              Browse Listing
+            </NavLink>
+            <NavLink
+              to="/myListing"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="link link-hover"
+            >
+              My Listing
+            </NavLink>
+          </div>
+        </nav>
+
+        {/* Company Info */}
+        <nav>
+          <h6 className="footer-title">Company</h6>
+          <div className="flex flex-col gap-2">
+            <a className="link link-hover">About RoommateFind</a>
+            <a className="link link-hover">Contact</a>
+            <a className="link link-hover">Careers</a>
+            <a className="link link-hover">Blog</a>
+          </div>
+        </nav>
+
+        {/* Policies */}
+        <nav>
+          <h6 className="footer-title">Terms & Condition</h6>
+          <div className="flex flex-col gap-3">
+            <a className="link link-hover">Privacy Policy</a>
+            <a className="link link-hover">Community Guidelines</a>
+            <a className="link link-hover">Safety Tips</a>
+          </div>
+        </nav>
+      </div>
     </footer>
   );
 };

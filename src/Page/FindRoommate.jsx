@@ -39,180 +39,87 @@ const FindRoommate = () => {
       <Helmet>
         <title>Add Post</title>
       </Helmet>
+
+      {/* Wrapper with theme support */}
       <div
-        className={`${
+        className={`border my-10 xl:w-9/12 mx-auto p-8 ${
           theme === "light"
-            ? "border  my-10 xl:w-9/12 mx-auto p-8 border-gray-200 bg-white"
-            : "border my-10 lg:w-9/12 mx-auto p-8 border-gray-400 bg-[#191E24] text-gray-50"
+            ? "border-gray-200 bg-white text-black"
+            : "border-gray-400 bg-[#191E24] text-gray-50"
         }`}
       >
-        <h1
-          className={`${
-            theme === "light"
-              ? "font-bold  text-2xl text-start"
-              : "font-bold  text-2xl text-start text-white"
-          }`}
-        >
-          Add Post
-        </h1>
+        <h1 className="font-bold text-2xl text-start">Add Post</h1>
+
         <form onSubmit={handleSubmitData}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
-            <div className="">
-              <input
-                type="text"
-                required
-                name="title"
-                placeholder="Title"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="Location"
-                placeholder="Location"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="amount"
-                placeholder="Rent Amount"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="roomType"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-                placeholder="Room Type"
-                list="roomType"
-              />
-              <datalist id="roomType">
-                <option value="Single"></option>
-                <option value="Shared"></option>
-              </datalist>
-            </div>
-            <div className="">
-              <input
-                required
-                type="text"
-                name="lifestyle"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-                placeholder="Lifestyle Preferences"
-                list="lifestyle"
-              />
-              <datalist id="lifestyle">
-                <option value="Early riser"></option>
-                <option value="Night owl"></option>
-                <option value="Smoker"></option>
-                <option value="Non-smoker"></option>
-                <option value="Pet"></option>
-              </datalist>
-            </div>
-            <div className="">
-              <input
-                required
-                type="text"
-                name="description"
-                placeholder="Description"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="contact"
-                placeholder="Contact Info "
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="availability"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-                placeholder="availability"
-                list="availability"
-              />
-              <datalist id="availability">
-                <option value="Available"></option>
-                <option value="Unavailable"></option>
-              </datalist>
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="email"
-                value={user.email}
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
-            <div className="">
-              <input
-                type="text"
-                required
-                name="name"
-                value={user.displayName}
-                placeholder="Soriful Hasan"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full "
-                }`}
-              />
-            </div>
+            {[
+              { name: "title", placeholder: "Title" },
+              { name: "Location", placeholder: "Location" },
+              { name: "amount", placeholder: "Rent Amount" },
+              {
+                name: "roomType",
+                placeholder: "Room Type",
+                list: "roomType",
+                datalist: ["Single", "Shared"],
+              },
+              {
+                name: "lifestyle",
+                placeholder: "Lifestyle Preferences",
+                list: "lifestyle",
+                datalist: [
+                  "Early riser",
+                  "Night owl",
+                  "Smoker",
+                  "Non-smoker",
+                  "Pet",
+                ],
+              },
+              { name: "description", placeholder: "Description" },
+              { name: "contact", placeholder: "Contact Info" },
+              {
+                name: "availability",
+                placeholder: "Availability",
+                list: "availability",
+                datalist: ["Available", "Unavailable"],
+              },
+              {
+                name: "email",
+                value: user.email,
+              },
+              {
+                name: "name",
+                value: user.displayName,
+                placeholder: "Your Name",
+              },
+            ].map((field, idx) => (
+              <div key={idx}>
+                <input
+                  type="text"
+                  required
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  value={field.value}
+                  list={field.list}
+                  className={`focus:outline-none input input-md w-full ${
+                    theme === "light" ? "bg-white" : ""
+                  }`}
+                  readOnly={["email", "name"].includes(field.name)}
+                />
+                {field.datalist && (
+                  <datalist id={field.list}>
+                    {field.datalist.map((option, i) => (
+                      <option key={i} value={option} />
+                    ))}
+                  </datalist>
+                )}
+              </div>
+            ))}
           </div>
-          <div className=" flex justify-center w-full    mt-20">
+
+          <div className="flex justify-center w-full mt-20">
             <button
-              className={`${
-                theme === "light"
-                  ? "btn full w-full xl:w-4xl bg-[#23BE0A] text-white"
-                  : "btn full w-full xl:w-4xl bg-gray-700  text-white"
+              className={`btn w-full xl:w-4xl text-white ${
+                theme === "light" ? "bg-[#23BE0A]" : "bg-gray-700"
               }`}
             >
               Add Post

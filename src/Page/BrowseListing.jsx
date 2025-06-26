@@ -25,7 +25,7 @@ const BrowseListing = () => {
   }
 
   return (
-    <div className="">
+    <div className=" ">
       <Helmet>
         <title>Browse listing</title>
       </Helmet>
@@ -34,7 +34,7 @@ const BrowseListing = () => {
           <div className="min-h-screen ">
             <div
               className={`${
-                theme === "light" ? "" : "text-white bg-[#191E24] "
+                theme === "light" ? "bg-white" : "text-white bg-[#191E24] "
               }`}
             >
               <div className="overflow-x-auto mt-10 mb-30 ">

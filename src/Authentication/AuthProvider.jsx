@@ -41,6 +41,8 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  
+
   // togole theme in my project
 
   const handleToggle = (e) => {

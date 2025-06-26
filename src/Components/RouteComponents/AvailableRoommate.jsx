@@ -12,78 +12,62 @@ const AvailableRoommate = ({ singleData }) => {
   const isLight = theme === "light";
 
   return (
-    <div className="">
+    <div>
       {/* parent div */}
-
       <div
-        className={`${
-          isLight ? "card bg-base-100 card-md shadow-sm" : "bg-[#191E24] card"
+        className={`card shadow-sm card-md ${
+          isLight ? "bg-base-100" : "bg-[#191E24]"
         }`}
       >
         <div className="card-body">
-          <h2
-            className={`card-title ${isLight ? "text-black" : "text-white"}  `}
-          >
-            {singleData.title}
-          </h2>
-          <p
-            className={` ${
-              isLight
-                ? "text-black flex place-items-center gap-2"
-                : "text-white flex place-items-center gap-2"
-            }  `}
-          >
-            <ImLocation color="#FF4C4C" />
-            {singleData.Location}
-          </p>
-          <p
-            className={` ${
-              isLight
-                ? "text-black flex place-items-center gap-2"
-                : "text-white flex place-items-center gap-2"
-            }  `}
-          >
-            <TbCoinTakaFilled color="#23BE0A" />
-            {singleData.amount}
-          </p>
-          <p
-            className={` ${
-              isLight
-                ? "text-black flex place-items-center gap-2"
-                : "text-white flex place-items-center gap-2"
-            }  `}
-          >
-            <BsHouseFill color="#1E90FF" />
-            {singleData.roomType}
-          </p>
-          <p
-            className={` ${
-              isLight
-                ? "text-black flex place-items-center gap-2"
-                : "text-white flex place-items-center gap-2"
-            }  `}
-          >
-            <GoCheckCircleFill color="#23BE0A" />
-            {singleData.availability}
-          </p>
-          <p
-            className={` ${
-              isLight
-                ? "text-black line-clamp-2 overflow-hidden text-ellipsis"
-                : "text-white line-clamp-2 overflow-hidden text-ellipsis"
-            }  `}
-          >
-            {singleData.description}
-          </p>
-          <div className="justify-end card-actions">
-            <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to={`/roommateDetails/${singleData._id}`}
-              className="btn bg-[#23BE0A] text-white rounded-lg"
-            >
-              See More <FaLongArrowAltRight />
-            </Link>
-          </div>
+          {/* common text color class */}
+          {(() => {
+            const textColor = isLight ? "text-black" : "text-white";
+            const iconTextClass = `${textColor} flex place-items-center gap-2`;
+            const descriptionClass = `${textColor} line-clamp-2 overflow-hidden text-ellipsis`;
+
+            return (
+              <>
+                <h2 className={`card-title ${textColor}`}>
+                  {singleData.title}
+                </h2>
+
+                <p className={iconTextClass}>
+                  <ImLocation color="#FF4C4C" />
+                  {singleData.Location}
+                </p>
+
+                <p className={iconTextClass}>
+                  <TbCoinTakaFilled color="#23BE0A" />
+                  {singleData.amount}
+                </p>
+
+                <p className={iconTextClass}>
+                  <BsHouseFill color="#1E90FF" />
+                  {singleData.roomType}
+                </p>
+
+                <p className={iconTextClass}>
+                  <GoCheckCircleFill color="#23BE0A" />
+                  {singleData.availability}
+                </p>
+
+                <p className={descriptionClass}>{singleData.description}</p>
+
+                <div className="justify-end card-actions">
+                  <Link
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    to={`/roommateDetails/${singleData._id}`}
+                    className="btn bg-[#23BE0A] text-white rounded-lg"
+                  >
+                    See More <FaLongArrowAltRight />
+                  </Link>
+                </div>
+              </>
+            );
+          })()}
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@ const MyListing = () => {
   }
 
   return (
-    <div className="">
+    <div className="xl:w-12/12 mx-auto p-8">
       <Helmet>
         <title>My Listing</title>
       </Helmet>
@@ -144,7 +144,7 @@ const MyListing = () => {
                             className={
                               theme == "light" ? "btn" : "btn bg-gray-800"
                             }
-                            to={`/updateDetails/${listing._id}`}
+                            to={`/dashboard/updateDetails/${listing._id}`}
                           >
                             {theme == "light" ? (
                               <FaUserEdit />

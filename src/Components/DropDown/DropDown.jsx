@@ -1,0 +1,67 @@
+import React from "react";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import {
+  ArrowRightOnRectangleIcon,
+  Cog6ToothIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
+
+const DropDown = ({ user, handleSignOut }) => {
+  return (
+    <Menu as="div" className="relative inline-block text-left">
+      {/* Avatar acts as dropdown button */}
+      <MenuButton className="focus:outline-none">
+        <div className="avatar cursor-pointer">
+          <div className="w-8 rounded-full ring  ring-offset-base-100 ring-offset-2">
+            <img src={user?.photoURL} alt="User Avatar" />
+          </div>
+        </div>
+      </MenuButton>
+
+      {/* Dropdown Items */}
+      <MenuItems className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50 text-sm text-gray-700">
+        <div className="py-1">
+          <MenuItem>
+            {({ active }) => (
+              <button
+                className={`${
+                  active ? "bg-gray-100" : ""
+                } group flex items-center w-full px-4 py-2`}
+              >
+                <UserCircleIcon className="w-4 h-4 mr-2" />
+                Profile
+              </button>
+            )}
+          </MenuItem>
+          <MenuItem>
+            {({ active }) => (
+              <button
+                className={`${
+                  active ? "bg-gray-100" : ""
+                } group flex items-center w-full px-4 py-2`}
+              >
+                <Cog6ToothIcon className="w-4 h-4 mr-2" />
+                Settings
+              </button>
+            )}
+          </MenuItem>
+          <MenuItem>
+            {({ active }) => (
+              <button
+                onClick={handleSignOut}
+                className={`${
+                  active ? "bg-gray-100" : ""
+                } group flex items-center w-full px-4 py-2`}
+              >
+                <ArrowRightOnRectangleIcon className="w-4 h-4 mr-2" />
+                Logout
+              </button>
+            )}
+          </MenuItem>
+        </div>
+      </MenuItems>
+    </Menu>
+  );
+};
+
+export default DropDown;

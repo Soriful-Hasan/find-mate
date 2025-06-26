@@ -9,21 +9,25 @@ import { PiUserListFill } from "react-icons/pi";
 import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import { FaMoon } from "react-icons/fa";
+import { LuLogIn } from "react-icons/lu";
 import { MdSunny } from "react-icons/md";
+import ProfileDropdown from "./DropDown/DropDown";
+import { BiSupport } from "react-icons/bi";
+import { BiMessageDetail } from "react-icons/bi";
 
 const Navbar = () => {
   const { user, userSignOut, loading, handleToggle, theme } =
     useContext(userContext);
 
   const link = [
-    <div className="flex items-center flex-col  xl:gap-8  lg:flex-row">
+    <div className="flex items-center flex-col  xl:gap-4  lg:flex-row">
       <NavLink
         to={"/"}
         className={({ isActive }) => {
           if (isActive) {
             return theme == "light"
-              ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-white   py-2 px-4 rounded outline-1";
+              ? "text-[#23BE0A] py-2 px-4 "
+              : "text-white bg-gray-800 rounded  py-2 px-4 ";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -35,9 +39,8 @@ const Navbar = () => {
           <RiHome4Fill /> Home
         </span>
       </NavLink>
-
       <NavLink
-        to={"/findRoommate"}
+        to={"/dashboard/dashBoardMain"}
         className={({ isActive }) => {
           if (isActive) {
             return theme == "light"
@@ -50,9 +53,7 @@ const Navbar = () => {
           }
         }}
       >
-        <span className="flex items-center  gap-2">
-          <IoPersonAdd /> Add Roommate
-        </span>
+        <span className="flex items-center gap-2">Dash Board</span>
       </NavLink>
 
       <NavLink
@@ -60,8 +61,8 @@ const Navbar = () => {
         className={({ isActive }) => {
           if (isActive) {
             return theme == "light"
-              ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-white   py-2 px-4 rounded outline-1";
+              ? "text-[#23BE0A] py-2 px-4 "
+              : "text-white bg-gray-800 rounded  py-2 px-4 ";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -75,12 +76,12 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
-        to={"/myListing"}
+        to={"/contact"}
         className={({ isActive }) => {
           if (isActive) {
             return theme == "light"
-              ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-white  py-2 px-4 rounded outline-1";
+              ? "text-[#23BE0A] py-2 px-4 "
+              : "text-white bg-gray-800 rounded  py-2 px-4 ";
           } else {
             return theme === "light"
               ? "text-black py-2 px-4"
@@ -89,7 +90,25 @@ const Navbar = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <PiUserListFill /> My Listings
+          <BiMessageDetail /> Contact
+        </span>
+      </NavLink>
+      <NavLink
+        to={"/support"}
+        className={({ isActive }) => {
+          if (isActive) {
+            return theme == "light"
+              ? "text-[#23BE0A] py-2 px-4 "
+              : "text-white bg-gray-800 rounded  py-2 px-4 ";
+          } else {
+            return theme === "light"
+              ? "text-black py-2 px-4"
+              : "text-white py-2 px-4";
+          }
+        }}
+      >
+        <span className="flex items-center gap-2">
+          <BiSupport /> Support
         </span>
       </NavLink>
     </div>,
@@ -117,152 +136,114 @@ const Navbar = () => {
       );
   };
   return (
-    <div className=" ">
+    <div className="">
       <div
-        className={`${
-          theme === "light"
-            ? "navbar  bg-white shadow-sm fixed top-0 z-50 "
-            : "navbar shadow-sm bg-[#191E24] fixed top-0 z-50"
-        } `}
+        className={`navbar fixed top-0 z-50 shadow-sm ${
+          theme === "light" ? "bg-white" : "bg-[#191E24]"
+        }`}
       >
-        <div className="navbar-start ">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              {theme == "light" ? (
-                <RiMenu3Line size={25} />
-              ) : (
-                <RiMenu3Line size={25} color="white" />
-              )}
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              {link}
-            </ul>
-          </div>
-          <div className="lg:flex item-center  items-center gap-4 hidden lg:block">
-            <img height={30} width={30} src="/logo.png" alt="" />
-            <a
-              className={`${
-                theme == "light"
-                  ? "text-black text-sm lg:text-xl  font-semibold"
-                  : "text-white text-sm lg:text-xl  font-semibold"
-              }`}
-            >
-              Find
-              <span className="font-bold ml-1">Mate</span>
-            </a>
-          </div>
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{link}</ul>
-        </div>
-
-        <div className="navbar-end  space-x-5">
-          <div className="">
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content={user?.displayName}
-              data-tooltip-place="top-end"
-            >
-              <div className="">
-                {loading ? (
-                  <span
-                    className={`${
-                      theme == "light"
-                        ? "loading loading-ring loading-xl"
-                        : "loading loading-ring loading-xl text-white"
-                    }`}
-                  ></span>
-                ) : (
-                  <div className="">
-                    {user ? (
-                      <div className="avatar">
-                        <div className=" w-10 rounded-full  ">
-                          <img src={user?.photoURL} />
-                        </div>
-                      </div>
-                    ) : (
-                      <span className=""></span>
-                    )}
-                  </div>
-                )}
+        <div className="w-11/12 mx-auto flex justify-between items-center">
+          {/* Navbar Start */}
+          <div className="navbar-start">
+            {/* Mobile Menu */}
+            <div className="dropdown">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost lg:hidden"
+              >
+                <RiMenu3Line
+                  size={25}
+                  color={theme === "light" ? "black" : "white"}
+                />
               </div>
-            </a>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                {link}
+              </ul>
+            </div>
 
-            <Tooltip id="my-tooltip" />
+            {/* Logo & Title */}
+            <div className="lg:flex items-center gap-4 hidden lg:block">
+              <img src="/logo.png" alt="Logo" width={30} height={30} />
+              <a
+                className={`text-sm lg:text-xl font-semibold ${
+                  theme === "light" ? "text-black" : "text-white"
+                }`}
+              >
+                Find<span className="font-bold ml-1">Mate</span>
+              </a>
+            </div>
           </div>
 
-          {/* handle dark and light loogle */}
-          <label className="swap swap-rotate">
-            {/* this hidden checkbox controls the state */}
-            <input
-              type="checkbox"
-              className="theme-controller"
-              value="synthwave"
-              onChange={handleToggle}
-            />
-
-            {/* sun icon */}
-            {theme == "light" ? (
-              <MdSunny size={30} color="black" />
+          {/* Navbar End (everything on right) */}
+          <div className="navbar-end space-x-5">
+            {/* Desktop Menu (Right Aligned) */}
+            <div className="hidden lg:flex">
+              <ul className="menu menu-horizontal px-1">{link}</ul>
+            </div>
+            {/* Theme Toggle */}
+            <label className="swap swap-rotate">
+              <input
+                type="checkbox"
+                className="theme-controller"
+                value="synthwave"
+                onChange={handleToggle}
+              />
+              <span
+                className={
+                  theme === "light"
+                    ? "bg-gray-100 rounded-full p-2 "
+                    : "bg-gray-800 hover:bg-gray-900 rounded-full p-2"
+                }
+              >
+                <MdSunny
+                  size={20}
+                  color={theme === "light" ? "black " : "white"}
+                />
+              </span>
+            </label>
+            {/* User Avatar or Loading */}
+            {loading ? (
+              <span
+                className={`loading loading-ring loading-xl ${
+                  theme !== "light" && "text-white"
+                }`}
+              />
             ) : (
-              <MdSunny size={30} color="white" />
+              user && (
+                <div className="">
+                  <ProfileDropdown user={user} handleSignOut={handleSignOut} />
+                </div>
+              )
             )}
 
-            {/* moon icon */}
-          </label>
-
-          {loading ? (
-            <span
-              className={`${
-                theme == "light"
-                  ? "loading loading-ring loading-xl"
-                  : "loading loading-ring loading-xl text-white"
-              }`}
-            ></span>
-          ) : (
-            <>
-              {user ? (
-                <button
-                  className={`${
+            {/* Auth Buttons */}
+            {loading ? (
+              <span
+                className={`loading loading-ring loading-xl ${
+                  theme !== "light" && "text-white"
+                }`}
+              />
+            ) : user ? (
+              <div></div>
+            ) : (
+              <div className="flex gap-4">
+                <Link
+                  to="/login"
+                  className={` text-lg flex text-white py-1 px-4 rounded-lg font-medium gap-2 items-center ${
                     theme === "light"
-                      ? "btn  text-white rounded-sm bg-[#23BE0A] "
-                      : "bg-[#1E2939] text-white btn text-black"
+                      ? "hover:bg-green-500 bg-[#23BE0A]"
+                      : "text-white bg-gray-800 hover:bg-gray-900"
                   }`}
-                  onClick={handleSignOut}
                 >
-                  Sign Out
-                </button>
-              ) : (
-                <div className="flex gap-4">
-                  <Link
-                    className={`${
-                      theme === "light"
-                        ? "btn  text-white rounded-sm bg-[#23BE0A] "
-                        : "bg-[#1E2939] text-white btn text-black"
-                    }`}
-                    to={"/login"}
-                  >
-                    Sing In
-                  </Link>
-                  <div className="hidden md:block">
-                    <Link
-                      className={`${
-                        theme === "light"
-                          ? "btn  text-white rounded-sm bg-[#59C6D2] "
-                          : "bg-[#1E2939] text-white btn text-black"
-                      }`}
-                      to={"/register"}
-                    >
-                      Sign Up
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </>
-          )}
+                  <LuLogIn /> Login
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

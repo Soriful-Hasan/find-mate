@@ -12,6 +12,9 @@ import Error from "../Components/Error";
 import DetailsRoommate from "../Components/RouteComponents/DetailsRoommate";
 import UpdateDetails from "../Page/UpdateListing";
 import Loader from "../Components/Loader";
+import DashBoard from "../Layout/DashBoard/DashBoard";
+import DashboardMain from "../Page/DashBoard/DashboardMain";
+import UpdateProfile from "../Page/DashBoard/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -35,22 +38,7 @@ const router = createBrowserRouter([
         ),
         hydrateFallbackElement: <Loader></Loader>,
       },
-      {
-        path: "/findRoommate",
-        element: (
-          <ProtectedRoute>
-            <FindRoommate></FindRoommate>
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/myListing",
-        element: (
-          <ProtectedRoute>
-            <MyListing></MyListing>
-          </ProtectedRoute>
-        ),
-      },
+
       {
         path: "/browseListing",
         element: <BrowseListing></BrowseListing>,
@@ -63,14 +51,44 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+    ],
+  },
+  {
+    path: "/dashBoard",
+    Component: DashBoard,
+    children: [
       {
-        path: "/updateDetails/:id",
+        path: "dashBoardMain",
+        Component: DashboardMain,
+      },
+      {
+        path: "findRoommate",
+        element: (
+          <ProtectedRoute>
+            <FindRoommate></FindRoommate>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "myListing",
+        element: (
+          <ProtectedRoute>
+            <MyListing></MyListing>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "updateDetails/:id",
         loader: ({ params }) =>
           fetch(
             `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
           ),
         element: <UpdateDetails></UpdateDetails>,
         hydrateFallbackElement: <Loader></Loader>,
+      },
+      {
+        path: "updateProfile",
+        Component: UpdateProfile,
       },
     ],
   },
