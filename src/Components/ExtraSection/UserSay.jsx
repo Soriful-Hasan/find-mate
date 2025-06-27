@@ -65,7 +65,7 @@ const UserSay = () => {
         {data.map((info) => (
           <div
             className={`${
-              light ? "card bg-base-100  shadow-sm" : "bg-[#191E24]"
+              light ? "hover:shadow-lg hover:border border-gray-200 card bg-base-100  shadow-sm" : "bg-[#191E24]"
             }`}
           >
             <div className="card-body space-y-4 cursor-pointer   ">

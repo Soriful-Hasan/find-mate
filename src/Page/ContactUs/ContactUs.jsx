@@ -13,7 +13,7 @@ const ContactUs = () => {
     const data = Object.fromEntries(formData.entries());
     console.log(data);
 
-    fetch("https://roommate-finder-server-steel.vercel.app/contact", {
+    fetch("http://localhost:3000/contact", {
       method: "POST",
       headers: {
         "content-type": "application/json",

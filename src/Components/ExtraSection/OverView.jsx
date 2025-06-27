@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { userContext } from "../../Authentication/AuthProvider";
 import TypeWriter from "./TypeWriter";
+import { Link } from "react-router";
 
 const OverView = () => {
   const { theme } = useContext(userContext);
@@ -63,8 +64,20 @@ const OverView = () => {
             </p>
           </div>
           <div className="  justify-center xl:justify-start  w-full gap-8 flex mt-8">
-            <button className="btn bg-[#23BE0A] text-white">Learn More</button>
-            <button className="btn  outline-[#23BE0A]">Contact Us</button>
+            <Link
+              to={"/about"}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="btn bg-[#23BE0A] text-white"
+            >
+              Learn More
+            </Link>
+            <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              to={"/contact"}
+              className="btn  outline-[#23BE0A]"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
       </div>

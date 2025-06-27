@@ -14,12 +14,10 @@ const Home = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const avaiablePost = useLoaderData();
-
-  console.log(data);
   const { theme } = useContext(userContext);
   const light = theme == "light";
   useEffect(() => {
-    fetch("https://roommate-finder-server-steel.vercel.app/roommateData/")
+    fetch(`${import.meta.env.VITE_url}/roommateData/`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -50,10 +48,10 @@ const Home = () => {
       </div>
       {data.length > 0 ? (
         <>
-          <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 ">
-            {data?.map((singleData) => (
-              <AvailableRoommate singleData={singleData}></AvailableRoommate>
-            ))}
+          <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 ">
+            
+              <AvailableRoommate singleData={data}></AvailableRoommate>
+          
           </div>
         </>
       ) : (

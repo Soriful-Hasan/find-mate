@@ -15,9 +15,7 @@ const MyListing = () => {
   const userEmail = user?.email;
 
   useEffect(() => {
-    fetch(
-      `https://roommate-finder-server-steel.vercel.app/findMyEmail/${userEmail}`
-    )
+    fetch(`${import.meta.env.VITE_url}/findMyEmail/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setListingData(data);
@@ -25,12 +23,9 @@ const MyListing = () => {
       });
   }, [userEmail]);
 
-  fetch(
-    `https://roommate-finder-server-steel.vercel.app/findMyEmail/${userEmail}`,
-    {
-      method: "GET",
-    }
-  )
+  fetch(`${import.meta.env.VITE_url}/findMyEmail/${userEmail}`, {
+    method: "GET",
+  })
     .then((res) => res.json())
     .then((data) => {});
 
@@ -45,12 +40,9 @@ const MyListing = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://roommate-finder-server-steel.vercel.app/deleteList/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
+        fetch(`${import.meta.env.VITE_url}/deleteList/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

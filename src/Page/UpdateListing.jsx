@@ -17,17 +17,17 @@ const UpdateListing = () => {
     lifestyle,
     amount,
     Location,
+    roomPhoto,
     _id,
   } = data[0];
 
   const handleUpdate = (e, id) => {
     e.preventDefault();
     const form = e.target;
-
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
 
-    fetch(`https://roommate-finder-server-steel.vercel.app/update/${id}`, {
+    fetch(`${import.meta.env.VITE_url}/update/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -51,172 +51,239 @@ const UpdateListing = () => {
       <Helmet>
         <title>Update Listing</title>
       </Helmet>
+
       <div
-        className={`${
+        className={`my-10 w-full lg:w-10/12 mx-auto p-8 rounded-xl shadow-md ${
           theme === "light"
-            ? "border my-10 w-full lg:w-10/12  mx-auto p-8 border-gray-200 bg-white"
-            : "border my-10 w-full lg:w-10/12 p-8 border-gray-400 bg-[#191E24] text-gray-50"
+            ? "border border-gray-200 bg-white text-black"
+            : "border border-gray-400 bg-[#191E24] text-gray-50"
         }`}
       >
-        <h1 className="font-bold  text-2xl text-start">Update Your Post</h1>
-        <form className="" onSubmit={(e) => handleUpdate(e, _id)}>
-          <div className=" gap-10 mt-10 grid grid-cols-1 lg:grid-cols-2">
-            <div className="">
+        <h1 className="font-bold text-3xl mb-6">Update Your Post</h1>
+
+        <form onSubmit={(e) => handleUpdate(e, _id)}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Title */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="title" className="font-semibold text-sm">
+                Title
+              </label>
               <input
                 type="text"
                 name="title"
-                placeholder="Title"
                 defaultValue={title}
-                className={`${
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
                 }`}
               />
             </div>
-            <div className="">
+
+            {/* Location */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="Location" className="font-semibold text-sm">
+                Location
+              </label>
               <input
                 type="text"
                 name="Location"
-                placeholder="Location"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
                 defaultValue={Location}
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
             </div>
-            <div className="">
+
+            {/* Rent Amount */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="amount" className="font-semibold text-sm">
+                Rent Amount
+              </label>
               <input
                 type="text"
                 name="amount"
-                placeholder="Rent Amount"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
                 defaultValue={amount}
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
             </div>
-            <div className="">
+
+            {/* Room Type */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="roomType" className="font-semibold text-sm">
+                Room Type
+              </label>
               <input
                 type="text"
                 name="roomType"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
-                placeholder="Room Type"
                 list="roomType"
                 defaultValue={roomType}
+                placeholder="Room Type"
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
               <datalist id="roomType">
-                <option value="New"></option>
-                <option value="Old"></option>
+                <option value="New" />
+                <option value="Old" />
               </datalist>
             </div>
-            <div className="">
+
+            {/* Lifestyle */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="lifestyle" className="font-semibold text-sm">
+                Lifestyle Preferences
+              </label>
               <input
                 type="text"
                 name="lifestyle"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
-                placeholder="Lifestyle Preferences"
                 list="lifestyle"
                 defaultValue={lifestyle}
+                placeholder="Lifestyle"
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
               <datalist id="lifestyle">
-                <option value="Early riser"></option>
-                <option value="Night owl"></option>
-                <option value="Smoker"></option>
-                <option value="Non-smoker"></option>
-                <option value="Pet"></option>
+                <option value="Early riser" />
+                <option value="Night owl" />
+                <option value="Smoker" />
+                <option value="Non-smoker" />
+                <option value="Pet" />
               </datalist>
             </div>
-            <div className="">
-              <input
-                type="text"
-                name="description"
-                placeholder="Description"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
-                defaultValue={description}
-              />
-            </div>
-            <div className="">
+
+            {/* Contact Info */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="contact" className="font-semibold text-sm">
+                Contact Info
+              </label>
               <input
                 type="text"
                 name="contact"
-                placeholder="Contact Info "
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
                 defaultValue={contact}
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
             </div>
-            <div className="">
+
+            {/* Availability */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="availability" className="font-semibold text-sm">
+                Availability
+              </label>
               <input
                 type="text"
                 name="availability"
-                className={`${
-                  theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
-                }`}
-                placeholder="availability"
                 list="availability"
                 defaultValue={availability}
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
               />
-
               <datalist id="availability">
-                <option value="Available"></option>
-                <option value="Unavailable"></option>
+                <option value="Available" />
+                <option value="Unavailable" />
               </datalist>
             </div>
-            <div className="">
+
+            {/* Photo URL */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="photoUrl" className="font-semibold text-sm">
+                Photo URL
+              </label>
+              <input
+                type="text"
+                name="photoUrl"
+                defaultValue={roomPhoto}
+                placeholder="Image link..."
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
+              />
+            </div>
+
+            {/* Email */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="font-semibold text-sm">
+                Email
+              </label>
               <input
                 type="text"
                 name="email"
                 value={user?.email}
-                className={`${
+                readOnly
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
                 }`}
               />
             </div>
-            <div className="">
+
+            {/* Name */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="font-semibold text-sm">
+                Your Name
+              </label>
               <input
                 type="text"
                 name="name"
                 value={user?.displayName}
-                placeholder="Soriful Hasan"
-                className={`${
+                readOnly
+                className={`input input-md w-full rounded-md focus:outline-none border px-4 py-2 ${
                   theme === "light"
-                    ? "focus:outline-none input input-md w-full bg-white "
-                    : "focus:outline-none input input-md w-full text-white "
+                    ? "bg-white border-gray-300"
+                    : "bg-gray-800 border-gray-600 text-white"
                 }`}
               />
             </div>
+
+            {/* Description (Full Width) */}
+            <div className="flex flex-col gap-2 lg:col-span-2">
+              <label htmlFor="description" className="font-semibold text-sm">
+                Description
+              </label>
+              <textarea
+                name="description"
+                required
+                rows={5}
+                defaultValue={description}
+                placeholder="Write detailed description here..."
+                className={`textarea w-full rounded-md resize-y focus:outline-none border px-4 py-3 ${
+                  theme === "light"
+                    ? "bg-white border-gray-300 text-black"
+                    : "bg-gray-800 border-gray-600 text-white"
+                }`}
+              ></textarea>
+            </div>
           </div>
-          <div className=" flex justify-center mt-20">
+
+          {/* Submit Button */}
+          <div className="flex justify-center w-full mt-12">
             <button
               type="submit"
-              className={`${
+              className={`btn w-full xl:w-96 text-white rounded-lg py-3 font-semibold ${
                 theme === "light"
-                  ? "btn full w-full xl:w-4xl bg-[#23BE0A] text-white"
-                  : "btn full w-full bg-gray-700  text-white"
+                  ? "bg-[#23BE0A] hover:bg-green-600"
+                  : "bg-gray-700 hover:bg-gray-600"
               }`}
             >
               Update Post

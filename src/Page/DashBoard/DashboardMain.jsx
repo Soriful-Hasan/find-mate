@@ -10,9 +10,7 @@ const DashboardMain = () => {
   const isDark = theme === "dark";
   const [listingData, setListingData] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://roommate-finder-server-steel.vercel.app/findMyEmail/${userEmail}`
-    )
+    fetch(`${import.meta.env.VITE_url}/findMyEmail/${userEmail}`)
       .then((res) => res.json())
       .then((data) => {
         setListingData(data);

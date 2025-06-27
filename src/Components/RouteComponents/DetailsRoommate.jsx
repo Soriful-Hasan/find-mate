@@ -22,7 +22,7 @@ const DetailsRoommate = () => {
     SetLike(true);
     console.log(isLike);
     setLike(1);
-    fetch(`https://roommate-finder-server-steel.vercel.app/addLike/${id}`, {
+    fetch(`${import.meta.env.VITE_url}/addLike/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

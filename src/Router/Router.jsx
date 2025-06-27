@@ -38,9 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/roommateDetails/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
-          ),
+          fetch(`${import.meta.env.VITE_url}/roommateData/${params.id}`),
         element: (
           <ProtectedRoute>
             <DetailsRoommate></DetailsRoommate>
@@ -65,7 +63,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashBoard",
-    Component: DashBoard,
+    element: (
+      <ProtectedRoute>
+        <DashBoard></DashBoard>
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: "dashBoardMain",
@@ -91,9 +93,7 @@ const router = createBrowserRouter([
       {
         path: "updateDetails/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://roommate-finder-server-steel.vercel.app/roommateData/${params.id}`
-          ),
+          fetch(`${import.meta.env.VITE_url}/roommateData/${params.id}`),
         element: <UpdateDetails></UpdateDetails>,
         hydrateFallbackElement: <Loader></Loader>,
       },

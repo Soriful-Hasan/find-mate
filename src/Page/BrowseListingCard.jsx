@@ -1,19 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
+import { Helmet } from "react-helmet-async";
 import { BsHouseFill } from "react-icons/bs";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { GoCheckCircleFill } from "react-icons/go";
 import { ImLocation } from "react-icons/im";
 import { TbCoinTakaFilled } from "react-icons/tb";
 import { Link } from "react-router";
-import { userContext } from "../../Authentication/AuthProvider";
 
-const AvailableRoommate = ({ singleData }) => {
-  const { theme } = useContext(userContext);
+const BrowseListingCard = ({ data, theme }) => {
   const isLight = theme === "light";
-
   return (
     <>
-      {singleData.map((data) => (
+      {data.map((data) => (
         <div
           key={data._id}
           className={`card shadow-sm card-md overflow-hidden rounded-lg ${
@@ -83,4 +81,4 @@ const AvailableRoommate = ({ singleData }) => {
   );
 };
 
-export default AvailableRoommate;
+export default BrowseListingCard;
