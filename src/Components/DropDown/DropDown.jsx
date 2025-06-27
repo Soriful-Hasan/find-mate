@@ -21,30 +21,12 @@ const DropDown = ({ user, handleSignOut }) => {
       {/* Dropdown Items */}
       <MenuItems className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50 text-sm text-gray-700">
         <div className="py-1">
-          <MenuItem>
-            {({ active }) => (
-              <button
-                className={`${
-                  active ? "bg-gray-100" : ""
-                } group flex items-center w-full px-4 py-2`}
-              >
-                <UserCircleIcon className="w-4 h-4 mr-2" />
-                Profile
-              </button>
-            )}
-          </MenuItem>
-          <MenuItem>
-            {({ active }) => (
-              <button
-                className={`${
-                  active ? "bg-gray-100" : ""
-                } group flex items-center w-full px-4 py-2`}
-              >
-                <Cog6ToothIcon className="w-4 h-4 mr-2" />
-                Settings
-              </button>
-            )}
-          </MenuItem>
+          <div className="p-4">
+            <h1>{user?.displayName}</h1>
+            <div className="border-b mt-2 border-gray-200"></div>
+
+          </div>
+
           <MenuItem>
             {({ active }) => (
               <button

@@ -50,7 +50,7 @@ const AmountChart = ({ listingData }) => {
 
   return (
     <div
-      className={`w-full max-w-sm mx-auto p-4 rounded-xl shadow-sm transition-colors duration-300 ${
+      className={`w-full max-w-sm mx-auto p-4 rounded-xl transition-colors duration-300 ${
         isDark ? "bg-[#2A2E37] text-white" : "bg-white text-black"
       }`}
     >

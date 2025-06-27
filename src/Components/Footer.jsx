@@ -3,10 +3,22 @@ import { userContext } from "../Authentication/AuthProvider";
 import { NavLink } from "react-router";
 import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const Footer = () => {
   const { theme } = useContext(userContext);
   const light = theme == "light";
+  const handleSubs = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Subscribe Successfully",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    e.target.form.reset();
+  };
   return (
     <footer
       className={`footer sm:footer-horizontal shadow-sm p-10 ${
@@ -99,25 +111,35 @@ const Footer = () => {
           </div>
         </nav>
 
-        {/* Company Info */}
         <nav>
-          <h6 className="footer-title">Company</h6>
+          <h6 className="footer-title">Contact Us</h6>
           <div className="flex flex-col gap-2">
-            <a className="link link-hover">About RoommateFind</a>
-            <a className="link link-hover">Contact</a>
-            <a className="link link-hover">Careers</a>
-            <a className="link link-hover">Blog</a>
+            <a className="link link-hover">Sylhet, Bangladesh</a>
+            <a className="link link-hover">sorifullhasan300@gmail.com</a>
+            <a className="link link-hover">+8801835458727</a>
           </div>
         </nav>
 
         {/* Policies */}
         <nav>
-          <h6 className="footer-title">Terms & Condition</h6>
-          <div className="flex flex-col gap-3">
-            <a className="link link-hover">Privacy Policy</a>
-            <a className="link link-hover">Community Guidelines</a>
-            <a className="link link-hover">Safety Tips</a>
-          </div>
+          <form className="" onSubmit={handleSubs}>
+            <h6 className="footer-title">
+              Subscribe to our monthly newsletter for exclusive content
+            </h6>
+            <fieldset className="w-80 mt-4">
+              <label>Enter your email address</label>
+              <div className="join mt-4">
+                <input
+                  type="text"
+                  placeholder="Your email address"
+                  className="input input-bordered join-item "
+                />
+                <button className="btn bg-green-500 text-white join-item">
+                  Subscribe
+                </button>
+              </div>
+            </fieldset>
+          </form>
         </nav>
       </div>
     </footer>

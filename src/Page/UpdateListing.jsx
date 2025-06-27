@@ -47,15 +47,15 @@ const UpdateListing = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen m-4">
       <Helmet>
         <title>Update Listing</title>
       </Helmet>
       <div
         className={`${
           theme === "light"
-            ? "border my-10 xl:w-9/12 mx-auto p-8 border-gray-200 bg-white"
-            : "border my-10 xl:w-9/12 mx-auto p-8 border-gray-400 bg-[#191E24] text-gray-50"
+            ? "border my-10 w-full lg:w-10/12  mx-auto p-8 border-gray-200 bg-white"
+            : "border my-10 w-full lg:w-10/12 p-8 border-gray-400 bg-[#191E24] text-gray-50"
         }`}
       >
         <h1 className="font-bold  text-2xl text-start">Update Your Post</h1>

@@ -60,7 +60,7 @@ const UpdateProfile = () => {
         </div>
       ) : (
         <div
-          className={`w-11/12 md:w-5/12 mx-auto shadow-sm rounded ${
+          className={`w-11/12  md:w-6/12 lg:w-8/12 xl:w-6/12 mx-auto shadow-sm rounded ${
             isDark ? "bg-[#2A2E37]" : "bg-white"
           }`}
         >
@@ -113,7 +113,9 @@ const UpdateProfile = () => {
 
               <button
                 type="submit"
-                className="btn mt-6 w-full border mb-4 bg-[#23BE0A] text-white"
+                className={`btn w-full mt-6 border-none text-white ${
+                  theme === "light" ? "bg-[#23BE0A]" : "bg-gray-700"
+                }`}
               >
                 Update Profile
               </button>

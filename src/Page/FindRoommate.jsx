@@ -35,14 +35,14 @@ const FindRoommate = () => {
       });
   };
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen m-4">
       <Helmet>
         <title>Add Post</title>
       </Helmet>
 
       {/* Wrapper with theme support */}
       <div
-        className={`border my-10 xl:w-9/12 mx-auto p-8 ${
+        className={`border my-10 w-full lg:w-10/12  mx-auto p-8 ${
           theme === "light"
             ? "border-gray-200 bg-white text-black"
             : "border-gray-400 bg-[#191E24] text-gray-50"

@@ -80,7 +80,7 @@ const MyListing = () => {
   }
 
   return (
-    <div className="xl:w-12/12 mx-auto p-8">
+    <div className="  w-full lg:w-10/12  mx-auto  ">
       <Helmet>
         <title>My Listing</title>
       </Helmet>

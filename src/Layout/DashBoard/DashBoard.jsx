@@ -152,12 +152,17 @@ const DashBoard = () => {
         >
           {/* Top Logo and Title */}
           <div>
-            <div className="flex items-center gap-4 mb-6">
-              <img src="/logo.png" alt="Logo" width={30} height={30} />
-              <h1 className="font-semibold mt-2 text-2xl flex gap-2">
-                Find Mate
-              </h1>
+            <div className="place-items-center">
+              <div className="avatar mb-4 ">
+                <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                  <img src={user?.photoURL} alt="User Avatar" />
+                </div>
+              </div>
+              <div className="font-semibold text-sm">
+                <h1>Hello {user?.displayName}</h1>
+              </div>
             </div>
+            <div className="border-b mt-2 border-gray-200"></div>
 
             {/* Sidebar Links */}
             {link}
