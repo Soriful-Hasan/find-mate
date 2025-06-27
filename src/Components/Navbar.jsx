@@ -14,6 +14,7 @@ import { MdSunny } from "react-icons/md";
 import ProfileDropdown from "./DropDown/DropDown";
 import { BiSupport } from "react-icons/bi";
 import { BiMessageDetail } from "react-icons/bi";
+import { MdInfoOutline } from "react-icons/md";
 
 const Navbar = () => {
   const { user, userSignOut, loading, handleToggle, theme } =
@@ -39,22 +40,27 @@ const Navbar = () => {
           <RiHome4Fill /> Home
         </span>
       </NavLink>
-      <NavLink
-        to={"/dashboard/dashBoardMain"}
-        className={({ isActive }) => {
-          if (isActive) {
-            return theme == "light"
-              ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
-              : "text-white outline-white   py-2 px-4 rounded outline-1";
-          } else {
-            return theme === "light"
-              ? "text-black py-2 px-4"
-              : "text-white py-2 px-4";
-          }
-        }}
-      >
-        <span className="flex items-center gap-2">Dash Board</span>
-      </NavLink>
+
+      {user ? (
+        <NavLink
+          to={"/dashboard/dashBoardMain"}
+          className={({ isActive }) => {
+            if (isActive) {
+              return theme == "light"
+                ? "text-[#23BE0A] outline-[#23BE0A]  py-2 px-4 rounded outline-1"
+                : "text-white outline-white   py-2 px-4 rounded outline-1";
+            } else {
+              return theme === "light"
+                ? "text-black py-2 px-4"
+                : "text-white py-2 px-4";
+            }
+          }}
+        >
+          <span className="flex items-center gap-4">Dashboard</span>
+        </NavLink>
+      ) : (
+        <></>
+      )}
 
       <NavLink
         to={"/browseListing"}
@@ -71,7 +77,7 @@ const Navbar = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <IoMdListBox /> Browse Listing
+          <IoMdListBox /> Browse-listing
         </span>
       </NavLink>
 
@@ -108,7 +114,7 @@ const Navbar = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <BiSupport /> about
+          <MdInfoOutline /> about
         </span>
       </NavLink>
     </div>,

@@ -15,8 +15,10 @@ import clsx from "clsx";
 import Loader from "../../Components/Loader";
 import Swal from "sweetalert2";
 const UpdateProfile = () => {
-  const { user, loading, updateUserProfile, setLoading } =
+  const { user, loading, theme, updateUserProfile, setLoading } =
     useContext(userContext);
+
+  const isDark = theme === "dark";
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,10 +28,10 @@ const UpdateProfile = () => {
       displayName: name,
       photoURL: photoURL,
     };
-    setLoading(true); // Loading শুরু করো
+    setLoading(true);
     updateUserProfile(userProfileData)
       .then(() => {
-        setLoading(false); // Update success হলে loading false
+        setLoading(false);
         Swal.fire({
           title: "Profile Updated",
           icon: "success",
@@ -37,7 +39,7 @@ const UpdateProfile = () => {
         });
       })
       .catch((error) => {
-        setLoading(false); // Error হলেও loading false করো
+        setLoading(false);
         console.error(error);
         Swal.fire({
           title: "Failed to update",
@@ -47,47 +49,77 @@ const UpdateProfile = () => {
       });
   };
   return (
-    <div className="flex justify-center flex-col min-h-screen">
+    <div
+      className={`flex justify-center flex-col min-h-screen transition-all duration-300 ${
+        isDark ? "bg-[#1A1D23] text-white" : "bg-gray-50 text-black"
+      }`}
+    >
       {loading ? (
-        <div className="">
-          <Loader></Loader>
+        <div className="flex justify-center">
+          <Loader />
         </div>
       ) : (
-        <>
-          <div className="w-5/12  mx-auto shadow-sm  place-items-center bg-white rounded ">
-            <div className=" place-items-center">
-              <div className="avatar mt-10">
-                <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
-                  <img src={user?.photoURL} />
-                </div>
-              </div>
-              <div className="  w-full">
-                <form onSubmit={handleUpdateProfile}>
-                  <input
-                    type="text"
-                    name="name"
-                    className="input w-full mt-10"
-                    defaultValue={user?.displayName}
-                  />
-                  <input
-                    type="text"
-                    name="photo"
-                    className="input w-full mt-10"
-                    defaultValue={user?.photoURL}
-                  />
-                  <div className=" w-full">
-                    <button
-                      type="submit"
-                      className="btn mt-10 w-full border mb-10 "
-                    >
-                      Update Profile{" "}
-                    </button>
-                  </div>
-                </form>
+        <div
+          className={`w-11/12 md:w-5/12 mx-auto shadow-sm rounded ${
+            isDark ? "bg-[#2A2E37]" : "bg-white"
+          }`}
+        >
+          <div className="flex flex-col items-center py-10">
+            <div className="avatar mb-6">
+              <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring-2 ring-offset-2">
+                <img src={user?.photoURL} alt="User Avatar" />
               </div>
             </div>
+
+            <form
+              onSubmit={handleUpdateProfile}
+              className="w-full px-8 md:px-12"
+            >
+              <div className="">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Your Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  className={`input w-full ${
+                    isDark ? "bg-[#3A3F4B] text-white" : ""
+                  }`}
+                  defaultValue={user?.displayName}
+                />
+              </div>
+
+              <div className="mt-4">
+                <label
+                  htmlFor="photo"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Photo URL
+                </label>
+                <input
+                  id="photo"
+                  type="text"
+                  name="photo"
+                  className={`input w-full ${
+                    isDark ? "bg-[#3A3F4B] text-white" : ""
+                  }`}
+                  defaultValue={user?.photoURL}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="btn mt-6 w-full border mb-4 bg-[#23BE0A] text-white"
+              >
+                Update Profile
+              </button>
+            </form>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
