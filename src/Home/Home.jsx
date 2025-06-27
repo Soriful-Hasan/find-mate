@@ -9,6 +9,7 @@ import OverView from "../Components/ExtraSection/OverView";
 import NoDataFound from "../Components/NoDataFound";
 import Loader from "../Components/Loader";
 import { Helmet } from "react-helmet-async";
+import AskQuestion from "../Components/ExtraSection/AskQuestion";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -49,9 +50,7 @@ const Home = () => {
       {data.length > 0 ? (
         <>
           <div className="my-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10 ">
-            
-              <AvailableRoommate singleData={data}></AvailableRoommate>
-          
+            <AvailableRoommate singleData={data}></AvailableRoommate>
           </div>
         </>
       ) : (
@@ -61,6 +60,7 @@ const Home = () => {
       )}
 
       <OverView></OverView>
+      <AskQuestion theme={theme} />
       <UserSay></UserSay>
     </div>
   );

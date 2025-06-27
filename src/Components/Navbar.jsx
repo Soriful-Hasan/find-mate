@@ -77,7 +77,7 @@ const Navbar = () => {
         }}
       >
         <span className="flex items-center gap-2">
-          <IoMdListBox /> Browse-listing
+          <IoMdListBox /> AllPost
         </span>
       </NavLink>
 

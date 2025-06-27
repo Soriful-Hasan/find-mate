@@ -87,13 +87,7 @@ const Footer = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to="/findRoommate"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="link link-hover"
-            >
-              Add Roommate
-            </NavLink>
+
             <NavLink
               to="/browseListing"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -102,7 +96,14 @@ const Footer = () => {
               Browse Listing
             </NavLink>
             <NavLink
-              to="/myListing"
+              to="/dashboard/findRoommate"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="link link-hover"
+            >
+              Add Roommate
+            </NavLink>
+            <NavLink
+              to="/dashboard/myListing"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="link link-hover"
             >
