@@ -76,7 +76,7 @@ const LikeChart = ({ listingData, theme }) => {
 
   return (
     <div
-      className={`w-full mx-auto px-4 py-6 rounded-2xl  transition-colors duration-300 ${
+      className={`w-full mb-10 mx-auto px-4 py-6 rounded-2xl  transition-colors duration-300 ${
         isDark ? "bg-[#2A2E37] text-white" : "bg-white text-black"
       }`}
     >

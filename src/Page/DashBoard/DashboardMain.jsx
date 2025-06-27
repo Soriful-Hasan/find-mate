@@ -33,7 +33,7 @@ const DashboardMain = () => {
         </div>
       </div>
       <div
-        className={`mt-10 shadow-sm rounded-2xl p-4 transition-colors duration-300 ${bgClass}`}
+        className={`mt-10 mb-10  shadow-sm rounded-2xl p-4 transition-colors duration-300 ${bgClass}`}
       >
         <LikeChart listingData={listingData} theme={theme} />
       </div>
