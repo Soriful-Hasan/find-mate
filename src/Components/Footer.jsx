@@ -3,6 +3,7 @@ import { userContext } from "../Authentication/AuthProvider";
 import { NavLink } from "react-router";
 import { FaInstagram, FaTelegram, FaYoutube } from "react-icons/fa";
 import { MdFacebook } from "react-icons/md";
+import { SiLinkedin } from "react-icons/si";
 import Swal from "sweetalert2";
 
 const Footer = () => {
@@ -38,19 +39,11 @@ const Footer = () => {
               Find<span className="font-bold ml-1">Mate</span>
             </a>
             <br />
-            Connecting Roommate care, since - 2025
+            Connecting Roommate care, <br />since - 2025
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 ">
             <a
-              href="..."
-              target="_blank"
-              rel="noreferrer"
-              className="hover:scale-110 transition"
-            >
-              <FaInstagram size={24} color="#E1306C" />
-            </a>
-            <a
-              href="..."
+              href="https://www.facebook.com/sorifulhasan3000"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
@@ -58,7 +51,7 @@ const Footer = () => {
               <MdFacebook size={24} color="#1877F2" />
             </a>
             <a
-              href="..."
+              href="https://www.youtube.com/@codingwithhasan300"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
@@ -66,12 +59,12 @@ const Footer = () => {
               <FaYoutube size={24} color="#FF0000" />
             </a>
             <a
-              href="..."
+              href="https://www.linkedin.com/in/md-soriful-hasan-53a9b52b3/"
               target="_blank"
               rel="noreferrer"
               className="hover:scale-110 transition"
             >
-              <FaTelegram size={24} color="#229ED9" />
+              <SiLinkedin style={{ color: "#0A66C2" }} size={24} />
             </a>
           </div>
         </aside>
